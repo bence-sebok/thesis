@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?fileVersion 4.0.0?><cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
+	<storageModule moduleId="org.eclipse.cdt.core.settings">
+		<cconfiguration id="com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt.debug#com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:4.9.3.20150529">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt.debug#com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:4.9.3.20150529" moduleId="org.eclipse.cdt.core.settings" name="GNU ARM v4.9.3 - Debug">
+				<macros>
+					<stringMacro name="StudioSdkPath" type="VALUE_PATH_DIR" value="${StudioSdkPathFromID:com.silabs.sdk.stack.super:1.1.1._1835326931}"/>
+					<stringMacro name="StudioToolchainPath" type="VALUE_PATH_DIR" value="${StudioToolchainPathFromID:com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:4.9.3.20150529}"/>
+				</macros>
+				<externalSettings/>
+				<extensions>
+					<extension id="com.silabs.ss.framework.debugger.core.HEX" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="com.silabs.ss.framework.debugger.core.EBL" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="com.silabs.ss.framework.debugger.core.GBL" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="com.silabs.ss.framework.debugger.core.BIN" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="com.silabs.ss.framework.debugger.core.S37" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GNU_ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule buildConfig.stockConfigId="com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt.debug#com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:4.9.3.20150529" cppBuildConfig.builtinIncludes="studio:/project/RadioConfig/ studio:/sdk/platform/emdrv/common/inc/ studio:/sdk/platform/emdrv/dmadrv/config/ studio:/sdk/platform/emdrv/ezradiodrv/config/ studio:/sdk/platform/emdrv/nvm/config/ studio:/sdk/platform/emdrv/rtcdrv/config/ studio:/sdk/platform/emdrv/spidrv/config/ studio:/sdk/platform/emdrv/tempdrv/config/ studio:/sdk/platform/emdrv/uartdrv/config/ studio:/sdk/platform/emdrv/ustimer/config/ studio:/sdk/hardware/kit/common/drivers/ studio:/sdk/platform/emdrv/ezradiodrv/common/inc/ studio:/sdk/platform/emdrv/ezradiodrv/common/inc/si4x6x/ studio:/sdk/platform/emdrv/ezradiodrv/plugins/inc/ studio:/sdk/platform/emdrv/ezradiodrv/si4460/inc/ studio:/sdk/platform/emdrv/dmadrv/inc/ studio:/sdk/platform/emdrv/gpiointerrupt/inc/ studio:/sdk/platform/emdrv/nvm/inc/ studio:/sdk/platform/emdrv/rtcdrv/inc/ studio:/sdk/platform/emdrv/sleep/inc/ studio:/sdk/platform/emdrv/spidrv/inc/ studio:/sdk/platform/emdrv/uartdrv/inc/ studio:/sdk/platform/emdrv/ustimer/inc/ studio:/sdk/platform/emdrv/tempdrv/inc/ studio:/sdk/platform/Device/SiliconLabs/EZR32LG/Include/ studio:/sdk/platform/middleware/glib/ studio:/sdk/platform/middleware/glib/glib/ studio:/sdk/platform/middleware/glib/dmd/ studio:/sdk/platform/middleware/glib/dmd/ssd2119/ studio:/sdk/hardware/kit/common/bsp/ studio:/sdk/hardware/kit/SLWSTK6200A_EZR32LG/config/ studio:/sdk/platform/emlib/inc/ studio:/sdk/platform/CMSIS/Include/ studio:/project/RadioConfig/ studio:/sdk/platform/emdrv/common/inc/ studio:/sdk/platform/emdrv/dmadrv/config/ studio:/sdk/platform/emdrv/ezradiodrv/config/ studio:/sdk/platform/emdrv/nvm/config/ studio:/sdk/platform/emdrv/rtcdrv/config/ studio:/sdk/platform/emdrv/spidrv/config/ studio:/sdk/platform/emdrv/tempdrv/config/ studio:/sdk/platform/emdrv/uartdrv/config/ studio:/sdk/platform/emdrv/ustimer/config/ studio:/sdk/hardware/kit/common/drivers/ studio:/sdk/platform/emdrv/ezradiodrv/common/inc/ studio:/sdk/platform/emdrv/ezradiodrv/common/inc/si4x6x/ studio:/sdk/platform/emdrv/ezradiodrv/plugins/inc/ studio:/sdk/platform/emdrv/ezradiodrv/si4460/inc/ studio:/sdk/platform/emdrv/dmadrv/inc/ studio:/sdk/platform/emdrv/gpiointerrupt/inc/ studio:/sdk/platform/emdrv/nvm/inc/ studio:/sdk/platform/emdrv/rtcdrv/inc/ studio:/sdk/platform/emdrv/sleep/inc/ studio:/sdk/platform/emdrv/spidrv/inc/ studio:/sdk/platform/emdrv/uartdrv/inc/ studio:/sdk/platform/emdrv/ustimer/inc/ studio:/sdk/platform/emdrv/tempdrv/inc/ studio:/sdk/platform/Device/SiliconLabs/EZR32LG/Include/ studio:/sdk/platform/middleware/glib/ studio:/sdk/platform/middleware/glib/glib/ studio:/sdk/platform/middleware/glib/dmd/ studio:/sdk/platform/middleware/glib/dmd/ssd2119/ studio:/sdk/hardware/kit/common/bsp/ studio:/sdk/hardware/kit/SLWSTK6200A_EZR32LG/config/ studio:/sdk/platform/emlib/inc/ studio:/sdk/platform/CMSIS/Include/" cppBuildConfig.builtinLibraryFiles="" cppBuildConfig.builtinLibraryNames="" cppBuildConfig.builtinLibraryObjects="" cppBuildConfig.builtinLibraryPaths="" cppBuildConfig.builtinMacros="EZR32LG330F256R60 RADIO_USE_GENERATED_CONFIGURATION EZR32LG330F256R60 RADIO_USE_GENERATED_CONFIGURATION" moduleId="com.silabs.ss.framework.ide.project.core.cpp" projectCommon.referencedModules="[{&quot;builtinExcludes&quot;:[],&quot;builtinSources&quot;:[&quot;Drivers/udelay.c&quot;,&quot;Drivers/retargetio.c&quot;,&quot;Drivers/displayls013b7dh03.c&quot;,&quot;Drivers/dmactrl.c&quot;,&quot;Drivers/textdisplay.c&quot;,&quot;Drivers/display.c&quot;,&quot;Drivers/displaypalemlib.c&quot;,&quot;Drivers/retargettextdisplay.c&quot;],&quot;builtin&quot;:true,&quot;module&quot;:&quot;&lt;project:MModule xmlns:project=\&quot;http://www.silabs.com/ss/Project.ecore\&quot; builtin=\&quot;true\&quot; id=\&quot;com.silabs.sdk.exx32.common.drivers\&quot;&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers/display.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers/displayls013b7dh03.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers/displaypalemlib.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers/dmactrl.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers/retargetio.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers/retargettextdisplay.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers/textdisplay.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers/udelay.c\&quot;/&gt;\r\n&lt;/project:MModule&gt;&quot;},{&quot;builtinExcludes&quot;:[],&quot;builtinSources&quot;:[&quot;Drivers/dmadrv.c&quot;,&quot;Drivers/ezradio_comm.c&quot;,&quot;Drivers/ezradio_hal.c&quot;,&quot;Drivers/ezradio_api_lib.c&quot;,&quot;Drivers/ezradio_direct_transmit_plugin.c&quot;,&quot;Drivers/ezradio_unmod_carrier_plugin.c&quot;,&quot;Drivers/ezradio_plugin_manager.c&quot;,&quot;Drivers/ezradio_transmit_plugin.c&quot;,&quot;Drivers/ezradio_direct_receive_plugin.c&quot;,&quot;Drivers/ezradio_pn9_plugin.c&quot;,&quot;Drivers/ezradio_crcerror_plugin.c&quot;,&quot;Drivers/ezradio_receive_plugin.c&quot;,&quot;Drivers/ezradio_auto_ack_plugin.c&quot;,&quot;Drivers/gpiointerrupt.c&quot;,&quot;Drivers/rtcdriver.c&quot;,&quot;Drivers/spidrv.c&quot;,&quot;Drivers/ustimer.c&quot;,&quot;Drivers/si4x6x/ezradio_api_lib_add.c&quot;],&quot;builtin&quot;:true,&quot;module&quot;:&quot;&lt;project:MModule xmlns:project=\&quot;http://www.silabs.com/ss/Project.ecore\&quot; builtin=\&quot;true\&quot; id=\&quot;com.silabs.sdk.exx32.common.emdrv\&quot;&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/dmadrv.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_api_lib.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_comm.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_hal.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_api_lib_add.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_plugin_manager.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_transmit_plugin.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_receive_plugin.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_crcerror_plugin.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_auto_ack_plugin.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_unmod_carrier_plugin.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_pn9_plugin.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_direct_transmit_plugin.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_direct_receive_plugin.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/gpiointerrupt.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/rtcdriver.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/spidrv.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ustimer.c\&quot;/&gt;\r\n&lt;/project:MModule&gt;&quot;},{&quot;builtinExcludes&quot;:[],&quot;builtinSources&quot;:[&quot;CMSIS/EZR32LG/startup_gcc_ezr32lg.s&quot;,&quot;CMSIS/EZR32LG/system_ezr32lg.c&quot;],&quot;builtin&quot;:true,&quot;module&quot;:&quot;&lt;project:MModule xmlns:project=\&quot;http://www.silabs.com/ss/Project.ecore\&quot; builtin=\&quot;true\&quot; id=\&quot;com.silabs.sdk.exx32.part\&quot;&gt;\r\n  &lt;inclusions pattern=\&quot;CMSIS/.*/startup_.*_.*.s\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;CMSIS/.*/system_.*.c\&quot;/&gt;\r\n&lt;/project:MModule&gt;&quot;},{&quot;builtinExcludes&quot;:[],&quot;builtinSources&quot;:[],&quot;builtin&quot;:true,&quot;module&quot;:&quot;&lt;project:MModule xmlns:project=\&quot;http://www.silabs.com/ss/Project.ecore\&quot; builtin=\&quot;true\&quot; id=\&quot;com.silabs.sdk.exx32.external.glib\&quot;&gt;\r\n  &lt;exclusions pattern=\&quot;.*\&quot;/&gt;\r\n&lt;/project:MModule&gt;&quot;},{&quot;builtinExcludes&quot;:[],&quot;builtinSources&quot;:[],&quot;builtin&quot;:true,&quot;module&quot;:&quot;&lt;project:MModule xmlns:project=\&quot;http://www.silabs.com/ss/Project.ecore\&quot; builtin=\&quot;true\&quot; id=\&quot;com.silabs.sdk.exx32.common.bsp\&quot;&gt;\r\n  &lt;exclusions pattern=\&quot;.*\&quot;/&gt;\r\n&lt;/project:MModule&gt;&quot;},{&quot;builtinExcludes&quot;:[],&quot;builtinSources&quot;:[],&quot;builtin&quot;:true,&quot;module&quot;:&quot;&lt;project:MModule xmlns:project=\&quot;http://www.silabs.com/ss/Project.ecore\&quot; builtin=\&quot;true\&quot; id=\&quot;com.silabs.sdk.exx32.board\&quot;&gt;\r\n  &lt;exclusions pattern=\&quot;.*\&quot;/&gt;\r\n&lt;/project:MModule&gt;&quot;},{&quot;builtinExcludes&quot;:[],&quot;builtinSources&quot;:[&quot;emlib/em_usart.c&quot;,&quot;emlib/em_prs.c&quot;,&quot;emlib/em_cmu.c&quot;,&quot;emlib/em_gpio.c&quot;,&quot;emlib/em_core.c&quot;,&quot;emlib/em_timer.c&quot;,&quot;emlib/em_dma.c&quot;,&quot;emlib/em_assert.c&quot;,&quot;emlib/em_system.c&quot;,&quot;emlib/em_emu.c&quot;,&quot;emlib/em_rtc.c&quot;,&quot;emlib/em_pcnt.c&quot;],&quot;builtin&quot;:true,&quot;module&quot;:&quot;&lt;project:MModule xmlns:project=\&quot;http://www.silabs.com/ss/Project.ecore\&quot; builtin=\&quot;true\&quot; id=\&quot;com.silabs.sdk.exx32.common.emlib\&quot;&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_assert.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_cmu.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_core.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_emu.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_dma.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_gpio.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_pcnt.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_prs.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_rtc.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_system.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_timer.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_usart.c\&quot;/&gt;\r\n&lt;/project:MModule&gt;&quot;},{&quot;builtinExcludes&quot;:[],&quot;builtinSources&quot;:[],&quot;builtin&quot;:true,&quot;module&quot;:&quot;&lt;project:MModule xmlns:project=\&quot;http://www.silabs.com/ss/Project.ecore\&quot; builtin=\&quot;true\&quot; id=\&quot;com.silabs.sdk.exx32.common.CMSIS\&quot;&gt;\r\n  &lt;exclusions pattern=\&quot;.*\&quot;/&gt;\r\n&lt;/project:MModule&gt;&quot;},{&quot;builtinExcludes&quot;:[],&quot;builtinSources&quot;:[&quot;RadioConfig/radio-config-gen.h&quot;,&quot;RadioConfig/radio-config-wds-gen.h&quot;,&quot;RadioConfig/radio-config-user-input.h&quot;,&quot;RadioConfig/app-config.h&quot;],&quot;builtin&quot;:true,&quot;module&quot;:&quot;&lt;project:MModule xmlns:project=\&quot;http://www.silabs.com/ss/Project.ecore\&quot; builtin=\&quot;true\&quot; id=\&quot;com.silabs.module.additional.pdm.com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt.debug#com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:4.9.3.20150529\&quot; pdm=\&quot;true\&quot;&gt;\r\n  &lt;inclusions pattern=\&quot;.*\&quot;/&gt;\r\n&lt;/project:MModule&gt;&quot;}]" projectCommon.savedStockVariables="{}" projectCommon.toolchainId="com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:4.9.3.20150529"/>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" description="" id="com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt.debug#com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:4.9.3.20150529" name="GNU ARM v4.9.3 - Debug" parent="com.silabs.ide.si32.gcc.cdt.managedbuild.config.gnu.exe">
+					<folderInfo id="com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt.debug#com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:4.9.3.20150529." name="/" resourcePath="">
+						<toolChain id="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.exe.129143137" name="Si32 GNU ARM" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.exe">
+							<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.debug.level.35346362" name="Debug Level" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.debug.level" value="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.debug.level.default" valueType="enumerated"/>
+							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF;org.eclipse.cdt.core.GNU_ELF;com.silabs.ss.framework.debugger.core.BIN;com.silabs.ss.framework.debugger.core.HEX;com.silabs.ss.framework.debugger.core.S37;com.silabs.ss.framework.debugger.core.EBL;com.silabs.ss.framework.debugger.core.GBL" id="com.silabs.ide.si32.gcc.cdt.managedbuild.target.gnu.platform.base.1403170253" isAbstract="false" name="Debug Platform" osList="win32,linux,macosx" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.target.gnu.platform.base"/>
+							<builder buildPath="${workspace_loc:/thesis_gecko}/GNU ARM v4.9.3 - Debug" id="com.silabs.ide.si32.gcc.cdt.managedbuild.target.gnu.builder.base.87483764" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Si32 GNU ARM Builder" parallelBuildOn="true" parallelizationNumber="optimal" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.target.gnu.builder.base"/>
+							<tool id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base.374916195" name="GNU ARM C Compiler" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base">
+								<option id="gnu.c.compiler.option.optimization.level.608592009" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.size" valueType="enumerated"/>
+								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.def.symbols.630636690" name="Defined symbols (-D)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.def.symbols" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="SL_WSTK6200A=1"/>
+									<listOptionValue builtIn="false" value="EZRADIO_DRIVER_EXTENDED_SUPPORT=1"/>
+									<listOptionValue builtIn="false" value="EZRADIO_DRIVER_FULL_SUPPORT=1"/>
+									<listOptionValue builtIn="false" value="DEBUG=1"/>
+									<listOptionValue builtIn="false" value="EZR32LG330F256R60=1"/>
+									<listOptionValue builtIn="false" value="RADIO_USE_GENERATED_CONFIGURATION=1"/>
+								</option>
+								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.debug.builtin.655483103" name="Always branch to builtin functions (-fno-builtin)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.debug.builtin" value="true" valueType="boolean"/>
+								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.debug.prolog.813534938" name="Generate debugger-friendly prologs (-mno-sched-prolog)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.debug.prolog" value="true" valueType="boolean"/>
+								<option id="gnu.c.compiler.option.include.paths.1366924206" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/app/mcu_example/SLWSTK6200A_EZR32LG/ezradio_simple_trx/config/RadioConfig&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/RadioConfig}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/app/mcu_example/SLWSTK6200A_EZR32LG/ezradio_simple_trx&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/app/mcu_example/SLWSTK6200A_EZR32LG/ezradio_simple_trx/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/common/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/dmadrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/nvm/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/rtcdrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/spidrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/tempdrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/uartdrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ustimer/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/hardware/kit/common/drivers&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/common/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/common/inc/si4x6x&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/plugins/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/si4460/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/dmadrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/gpiointerrupt/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/nvm/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/rtcdrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/sleep/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/spidrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/uartdrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ustimer/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/tempdrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/Device/SiliconLabs/EZR32LG/Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/middleware/glib&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/middleware/glib/glib&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/middleware/glib/dmd&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/middleware/glib/dmd/ssd2119&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/hardware/kit/common/bsp&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/hardware/kit/SLWSTK6200A_EZR32LG/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emlib/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/CMSIS/Include&quot;"/>
+								</option>
+								<inputType id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.input.2124973005" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							</tool>
+							<tool id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.base.754966160" name="GNU ARM C++ Compiler" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.base">
+								<option id="gnu.cpp.compiler.option.optimization.level.62112900" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
+								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.debug.builtin.438630151" name="Always branch to builtin functions (-fno-builtin)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.debug.builtin" value="true" valueType="boolean"/>
+								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.debug.prolog.1465009290" name="Generate debugger-friendly prologs (-mno-sched-prolog)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.debug.prolog" value="true" valueType="boolean"/>
+							</tool>
+							<tool id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.base.503789714" name="GNU ARM Assembler" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.base">
+								<option id="gnu.both.asm.option.include.paths.960498960" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/app/mcu_example/SLWSTK6200A_EZR32LG/ezradio_simple_trx/config/RadioConfig&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/RadioConfig}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/app/mcu_example/SLWSTK6200A_EZR32LG/ezradio_simple_trx&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/app/mcu_example/SLWSTK6200A_EZR32LG/ezradio_simple_trx/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/common/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/dmadrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/nvm/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/rtcdrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/spidrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/tempdrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/uartdrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ustimer/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/hardware/kit/common/drivers&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/common/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/common/inc/si4x6x&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/plugins/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/si4460/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/dmadrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/gpiointerrupt/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/nvm/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/rtcdrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/sleep/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/spidrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/uartdrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ustimer/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/tempdrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/Device/SiliconLabs/EZR32LG/Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/middleware/glib&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/middleware/glib/glib&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/middleware/glib/dmd&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/middleware/glib/dmd/ssd2119&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/hardware/kit/common/bsp&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/hardware/kit/SLWSTK6200A_EZR32LG/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emlib/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/CMSIS/Include&quot;"/>
+								</option>
+								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.as.def.symbols.1906737461" name="Defined symbols (-D)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.as.def.symbols" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="SL_WSTK6200A=1"/>
+									<listOptionValue builtIn="false" value="EZRADIO_DRIVER_EXTENDED_SUPPORT=1"/>
+									<listOptionValue builtIn="false" value="EZRADIO_DRIVER_FULL_SUPPORT=1"/>
+									<listOptionValue builtIn="false" value="EZR32LG330F256R60=1"/>
+									<listOptionValue builtIn="false" value="RADIO_USE_GENERATED_CONFIGURATION=1"/>
+								</option>
+								<inputType id="org.eclipse.cdt.core.asmSource.2065930210" superClass="org.eclipse.cdt.core.asmSource"/>
+							</tool>
+							<tool id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base.1600675209" name="GNU ARM C Linker" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base">
+								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.nostdlibs.1611756182" name="No startup or default libs (-nostdlib)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.nostdlibs" value="false" valueType="boolean"/>
+								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.2116452759" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+							<tool id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.linker.base.1586218545" name="GNU ARM C++ Linker" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.linker.base">
+								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.linker.nostdlibs.402726651" name="No startup or default libs (-nostdlib)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.linker.nostdlibs" value="false" valueType="boolean"/>
+							</tool>
+							<tool id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.archiver.base.1707010684" name="GNU ARM Archiver" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.archiver.base"/>
+						</toolChain>
+					</folderInfo>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+		<cconfiguration id="com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt.release#com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:4.9.3.20150529">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt.release#com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:4.9.3.20150529" moduleId="org.eclipse.cdt.core.settings" name="GNU ARM v4.9.3 - Release">
+				<macros>
+					<stringMacro name="StudioSdkPath" type="VALUE_PATH_DIR" value="${StudioSdkPathFromID:com.silabs.sdk.stack.super:1.1.1._1835326931}"/>
+					<stringMacro name="StudioToolchainPath" type="VALUE_PATH_DIR" value="${StudioToolchainPathFromID:com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:4.9.3.20150529}"/>
+				</macros>
+				<externalSettings/>
+				<extensions>
+					<extension id="com.silabs.ss.framework.debugger.core.HEX" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="com.silabs.ss.framework.debugger.core.EBL" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="com.silabs.ss.framework.debugger.core.GBL" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="com.silabs.ss.framework.debugger.core.BIN" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="com.silabs.ss.framework.debugger.core.S37" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GNU_ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule buildConfig.stockConfigId="com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt.release#com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:4.9.3.20150529" cppBuildConfig.builtinIncludes="studio:/sdk/platform/emdrv/common/inc/ studio:/sdk/platform/emdrv/dmadrv/config/ studio:/sdk/platform/emdrv/ezradiodrv/config/ studio:/sdk/platform/emdrv/nvm/config/ studio:/sdk/platform/emdrv/rtcdrv/config/ studio:/sdk/platform/emdrv/spidrv/config/ studio:/sdk/platform/emdrv/tempdrv/config/ studio:/sdk/platform/emdrv/uartdrv/config/ studio:/sdk/platform/emdrv/ustimer/config/ studio:/sdk/hardware/kit/common/drivers/ studio:/sdk/platform/emdrv/ezradiodrv/common/inc/ studio:/sdk/platform/emdrv/ezradiodrv/common/inc/si4x6x/ studio:/sdk/platform/emdrv/ezradiodrv/plugins/inc/ studio:/sdk/platform/emdrv/ezradiodrv/si4460/inc/ studio:/sdk/platform/emdrv/dmadrv/inc/ studio:/sdk/platform/emdrv/gpiointerrupt/inc/ studio:/sdk/platform/emdrv/nvm/inc/ studio:/sdk/platform/emdrv/rtcdrv/inc/ studio:/sdk/platform/emdrv/sleep/inc/ studio:/sdk/platform/emdrv/spidrv/inc/ studio:/sdk/platform/emdrv/uartdrv/inc/ studio:/sdk/platform/emdrv/ustimer/inc/ studio:/sdk/platform/emdrv/tempdrv/inc/ studio:/sdk/platform/Device/SiliconLabs/EZR32LG/Include/ studio:/sdk/platform/middleware/glib/ studio:/sdk/platform/middleware/glib/glib/ studio:/sdk/platform/middleware/glib/dmd/ studio:/sdk/platform/middleware/glib/dmd/ssd2119/ studio:/sdk/hardware/kit/common/bsp/ studio:/sdk/hardware/kit/SLWSTK6200A_EZR32LG/config/ studio:/sdk/platform/emlib/inc/ studio:/sdk/platform/CMSIS/Include/ studio:/sdk/platform/emdrv/common/inc/ studio:/sdk/platform/emdrv/dmadrv/config/ studio:/sdk/platform/emdrv/ezradiodrv/config/ studio:/sdk/platform/emdrv/nvm/config/ studio:/sdk/platform/emdrv/rtcdrv/config/ studio:/sdk/platform/emdrv/spidrv/config/ studio:/sdk/platform/emdrv/tempdrv/config/ studio:/sdk/platform/emdrv/uartdrv/config/ studio:/sdk/platform/emdrv/ustimer/config/ studio:/sdk/hardware/kit/common/drivers/ studio:/sdk/platform/emdrv/ezradiodrv/common/inc/ studio:/sdk/platform/emdrv/ezradiodrv/common/inc/si4x6x/ studio:/sdk/platform/emdrv/ezradiodrv/plugins/inc/ studio:/sdk/platform/emdrv/ezradiodrv/si4460/inc/ studio:/sdk/platform/emdrv/dmadrv/inc/ studio:/sdk/platform/emdrv/gpiointerrupt/inc/ studio:/sdk/platform/emdrv/nvm/inc/ studio:/sdk/platform/emdrv/rtcdrv/inc/ studio:/sdk/platform/emdrv/sleep/inc/ studio:/sdk/platform/emdrv/spidrv/inc/ studio:/sdk/platform/emdrv/uartdrv/inc/ studio:/sdk/platform/emdrv/ustimer/inc/ studio:/sdk/platform/emdrv/tempdrv/inc/ studio:/sdk/platform/Device/SiliconLabs/EZR32LG/Include/ studio:/sdk/platform/middleware/glib/ studio:/sdk/platform/middleware/glib/glib/ studio:/sdk/platform/middleware/glib/dmd/ studio:/sdk/platform/middleware/glib/dmd/ssd2119/ studio:/sdk/hardware/kit/common/bsp/ studio:/sdk/hardware/kit/SLWSTK6200A_EZR32LG/config/ studio:/sdk/platform/emlib/inc/ studio:/sdk/platform/CMSIS/Include/" cppBuildConfig.builtinLibraryFiles="" cppBuildConfig.builtinLibraryNames="" cppBuildConfig.builtinLibraryObjects="" cppBuildConfig.builtinLibraryPaths="" cppBuildConfig.builtinMacros="EZR32LG330F256R60 EZR32LG330F256R60" moduleId="com.silabs.ss.framework.ide.project.core.cpp" projectCommon.referencedModules="[{&quot;builtinExcludes&quot;:[],&quot;builtinSources&quot;:[&quot;Drivers/dmadrv.c&quot;,&quot;Drivers/ezradio_comm.c&quot;,&quot;Drivers/ezradio_hal.c&quot;,&quot;Drivers/ezradio_api_lib.c&quot;,&quot;Drivers/ezradio_direct_transmit_plugin.c&quot;,&quot;Drivers/ezradio_unmod_carrier_plugin.c&quot;,&quot;Drivers/ezradio_plugin_manager.c&quot;,&quot;Drivers/ezradio_transmit_plugin.c&quot;,&quot;Drivers/ezradio_direct_receive_plugin.c&quot;,&quot;Drivers/ezradio_pn9_plugin.c&quot;,&quot;Drivers/ezradio_crcerror_plugin.c&quot;,&quot;Drivers/ezradio_receive_plugin.c&quot;,&quot;Drivers/ezradio_auto_ack_plugin.c&quot;,&quot;Drivers/gpiointerrupt.c&quot;,&quot;Drivers/rtcdriver.c&quot;,&quot;Drivers/spidrv.c&quot;,&quot;Drivers/ustimer.c&quot;,&quot;Drivers/si4x6x/ezradio_api_lib_add.c&quot;],&quot;builtin&quot;:true,&quot;module&quot;:&quot;&lt;project:MModule xmlns:project=\&quot;http://www.silabs.com/ss/Project.ecore\&quot; builtin=\&quot;true\&quot; id=\&quot;com.silabs.sdk.exx32.common.emdrv\&quot;&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/dmadrv.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_api_lib.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_comm.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_hal.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_api_lib_add.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_plugin_manager.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_transmit_plugin.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_receive_plugin.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_crcerror_plugin.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_auto_ack_plugin.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_unmod_carrier_plugin.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_pn9_plugin.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_direct_transmit_plugin.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_direct_receive_plugin.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/gpiointerrupt.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/rtcdriver.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/spidrv.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ustimer.c\&quot;/&gt;\r\n&lt;/project:MModule&gt;&quot;},{&quot;builtinExcludes&quot;:[],&quot;builtinSources&quot;:[],&quot;builtin&quot;:true,&quot;module&quot;:&quot;&lt;project:MModule xmlns:project=\&quot;http://www.silabs.com/ss/Project.ecore\&quot; builtin=\&quot;true\&quot; id=\&quot;com.silabs.sdk.exx32.common.bsp\&quot;&gt;\r\n  &lt;exclusions pattern=\&quot;.*\&quot;/&gt;\r\n&lt;/project:MModule&gt;&quot;},{&quot;builtinExcludes&quot;:[],&quot;builtinSources&quot;:[&quot;Drivers/udelay.c&quot;,&quot;Drivers/retargetio.c&quot;,&quot;Drivers/displayls013b7dh03.c&quot;,&quot;Drivers/dmactrl.c&quot;,&quot;Drivers/textdisplay.c&quot;,&quot;Drivers/display.c&quot;,&quot;Drivers/displaypalemlib.c&quot;,&quot;Drivers/retargettextdisplay.c&quot;],&quot;builtin&quot;:true,&quot;module&quot;:&quot;&lt;project:MModule xmlns:project=\&quot;http://www.silabs.com/ss/Project.ecore\&quot; builtin=\&quot;true\&quot; id=\&quot;com.silabs.sdk.exx32.common.drivers\&quot;&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers/display.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers/displayls013b7dh03.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers/displaypalemlib.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers/dmactrl.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers/retargetio.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers/retargettextdisplay.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers/textdisplay.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers/udelay.c\&quot;/&gt;\r\n&lt;/project:MModule&gt;&quot;},{&quot;builtinExcludes&quot;:[],&quot;builtinSources&quot;:[&quot;emlib/em_usart.c&quot;,&quot;emlib/em_prs.c&quot;,&quot;emlib/em_cmu.c&quot;,&quot;emlib/em_gpio.c&quot;,&quot;emlib/em_core.c&quot;,&quot;emlib/em_timer.c&quot;,&quot;emlib/em_dma.c&quot;,&quot;emlib/em_assert.c&quot;,&quot;emlib/em_system.c&quot;,&quot;emlib/em_emu.c&quot;,&quot;emlib/em_rtc.c&quot;,&quot;emlib/em_pcnt.c&quot;],&quot;builtin&quot;:true,&quot;module&quot;:&quot;&lt;project:MModule xmlns:project=\&quot;http://www.silabs.com/ss/Project.ecore\&quot; builtin=\&quot;true\&quot; id=\&quot;com.silabs.sdk.exx32.common.emlib\&quot;&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_assert.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_cmu.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_core.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_emu.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_dma.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_gpio.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_pcnt.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_prs.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_rtc.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_system.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_timer.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_usart.c\&quot;/&gt;\r\n&lt;/project:MModule&gt;&quot;},{&quot;builtinExcludes&quot;:[],&quot;builtinSources&quot;:[],&quot;builtin&quot;:true,&quot;module&quot;:&quot;&lt;project:MModule xmlns:project=\&quot;http://www.silabs.com/ss/Project.ecore\&quot; builtin=\&quot;true\&quot; id=\&quot;com.silabs.sdk.exx32.external.glib\&quot;&gt;\r\n  &lt;exclusions pattern=\&quot;.*\&quot;/&gt;\r\n&lt;/project:MModule&gt;&quot;},{&quot;builtinExcludes&quot;:[],&quot;builtinSources&quot;:[],&quot;builtin&quot;:true,&quot;module&quot;:&quot;&lt;project:MModule xmlns:project=\&quot;http://www.silabs.com/ss/Project.ecore\&quot; builtin=\&quot;true\&quot; id=\&quot;com.silabs.sdk.exx32.board\&quot;&gt;\r\n  &lt;exclusions pattern=\&quot;.*\&quot;/&gt;\r\n&lt;/project:MModule&gt;&quot;},{&quot;builtinExcludes&quot;:[],&quot;builtinSources&quot;:[&quot;CMSIS/EZR32LG/startup_gcc_ezr32lg.s&quot;,&quot;CMSIS/EZR32LG/system_ezr32lg.c&quot;],&quot;builtin&quot;:true,&quot;module&quot;:&quot;&lt;project:MModule xmlns:project=\&quot;http://www.silabs.com/ss/Project.ecore\&quot; builtin=\&quot;true\&quot; id=\&quot;com.silabs.sdk.exx32.part\&quot;&gt;\r\n  &lt;inclusions pattern=\&quot;CMSIS/.*/startup_.*_.*.s\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;CMSIS/.*/system_.*.c\&quot;/&gt;\r\n&lt;/project:MModule&gt;&quot;},{&quot;builtinExcludes&quot;:[],&quot;builtinSources&quot;:[],&quot;builtin&quot;:true,&quot;module&quot;:&quot;&lt;project:MModule xmlns:project=\&quot;http://www.silabs.com/ss/Project.ecore\&quot; builtin=\&quot;true\&quot; id=\&quot;com.silabs.sdk.exx32.common.CMSIS\&quot;&gt;\r\n  &lt;exclusions pattern=\&quot;.*\&quot;/&gt;\r\n&lt;/project:MModule&gt;&quot;}]" projectCommon.toolchainId="com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:4.9.3.20150529"/>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" description="" id="com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt.release#com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:4.9.3.20150529" name="GNU ARM v4.9.3 - Release" parent="com.silabs.ide.si32.gcc.cdt.managedbuild.config.gnu.exe">
+					<folderInfo id="com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt.release#com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:4.9.3.20150529." name="/" resourcePath="">
+						<toolChain id="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.exe.373484882" name="Si32 GNU ARM" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.exe">
+							<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.debug.level.1678699038" name="Debug Level" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.debug.level" value="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.debug.level.default" valueType="enumerated"/>
+							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF;org.eclipse.cdt.core.GNU_ELF;com.silabs.ss.framework.debugger.core.BIN;com.silabs.ss.framework.debugger.core.HEX;com.silabs.ss.framework.debugger.core.S37;com.silabs.ss.framework.debugger.core.EBL;com.silabs.ss.framework.debugger.core.GBL" id="com.silabs.ide.si32.gcc.cdt.managedbuild.target.gnu.platform.base.1112962561" isAbstract="false" name="Debug Platform" osList="win32,linux,macosx" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.target.gnu.platform.base"/>
+							<builder buildPath="${workspace_loc:/thesis_gecko}/GNU ARM v4.9.3 - Release" id="com.silabs.ide.si32.gcc.cdt.managedbuild.target.gnu.builder.base.386023731" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Si32 GNU ARM Builder" parallelBuildOn="true" parallelizationNumber="optimal" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.target.gnu.builder.base"/>
+							<tool id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base.748566533" name="GNU ARM C Compiler" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base">
+								<option id="gnu.c.compiler.option.optimization.level.93469686" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.size" valueType="enumerated"/>
+								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.def.symbols.647129345" name="Defined symbols (-D)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.def.symbols" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="SL_WSTK6200A=1"/>
+									<listOptionValue builtIn="false" value="EZRADIO_DRIVER_EXTENDED_SUPPORT=1"/>
+									<listOptionValue builtIn="false" value="EZRADIO_DRIVER_FULL_SUPPORT=1"/>
+									<listOptionValue builtIn="false" value="NDEBUG=1"/>
+									<listOptionValue builtIn="false" value="EZR32LG330F256R60=1"/>
+								</option>
+								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.debug.builtin.1087588863" name="Always branch to builtin functions (-fno-builtin)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.debug.builtin" value="false" valueType="boolean"/>
+								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.debug.prolog.573714288" name="Generate debugger-friendly prologs (-mno-sched-prolog)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.debug.prolog" value="false" valueType="boolean"/>
+								<option id="gnu.c.compiler.option.include.paths.568796861" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/app/mcu_example/SLWSTK6200A_EZR32LG/ezradio_simple_trx/config/RadioConfig&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/RadioConfig}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/app/mcu_example/SLWSTK6200A_EZR32LG/ezradio_simple_trx&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/app/mcu_example/SLWSTK6200A_EZR32LG/ezradio_simple_trx/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/common/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/dmadrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/nvm/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/rtcdrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/spidrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/tempdrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/uartdrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ustimer/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/hardware/kit/common/drivers&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/common/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/common/inc/si4x6x&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/plugins/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/si4460/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/dmadrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/gpiointerrupt/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/nvm/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/rtcdrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/sleep/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/spidrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/uartdrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ustimer/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/tempdrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/Device/SiliconLabs/EZR32LG/Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/middleware/glib&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/middleware/glib/glib&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/middleware/glib/dmd&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/middleware/glib/dmd/ssd2119&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/hardware/kit/common/bsp&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/hardware/kit/SLWSTK6200A_EZR32LG/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emlib/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/CMSIS/Include&quot;"/>
+								</option>
+								<inputType id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.input.882106028" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							</tool>
+							<tool id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.base.1102907880" name="GNU ARM C++ Compiler" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.base">
+								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.debug.builtin.368586035" name="Always branch to builtin functions (-fno-builtin)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.debug.builtin" value="false" valueType="boolean"/>
+								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.debug.prolog.252951611" name="Generate debugger-friendly prologs (-mno-sched-prolog)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.debug.prolog" value="false" valueType="boolean"/>
+							</tool>
+							<tool id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.base.304190771" name="GNU ARM Assembler" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.base">
+								<option id="gnu.both.asm.option.include.paths.200663972" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/app/mcu_example/SLWSTK6200A_EZR32LG/ezradio_simple_trx/config/RadioConfig&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/RadioConfig}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/app/mcu_example/SLWSTK6200A_EZR32LG/ezradio_simple_trx&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/app/mcu_example/SLWSTK6200A_EZR32LG/ezradio_simple_trx/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/common/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/dmadrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/nvm/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/rtcdrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/spidrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/tempdrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/uartdrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ustimer/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/hardware/kit/common/drivers&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/common/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/common/inc/si4x6x&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/plugins/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/si4460/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/dmadrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/gpiointerrupt/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/nvm/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/rtcdrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/sleep/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/spidrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/uartdrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ustimer/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/tempdrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/Device/SiliconLabs/EZR32LG/Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/middleware/glib&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/middleware/glib/glib&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/middleware/glib/dmd&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/middleware/glib/dmd/ssd2119&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/hardware/kit/common/bsp&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/hardware/kit/SLWSTK6200A_EZR32LG/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emlib/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/CMSIS/Include&quot;"/>
+								</option>
+								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.as.def.symbols.777680843" name="Defined symbols (-D)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.as.def.symbols" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="SL_WSTK6200A=1"/>
+									<listOptionValue builtIn="false" value="EZRADIO_DRIVER_EXTENDED_SUPPORT=1"/>
+									<listOptionValue builtIn="false" value="EZRADIO_DRIVER_FULL_SUPPORT=1"/>
+									<listOptionValue builtIn="false" value="EZR32LG330F256R60=1"/>
+								</option>
+								<inputType id="org.eclipse.cdt.core.asmSource.2067721587" superClass="org.eclipse.cdt.core.asmSource"/>
+							</tool>
+							<tool id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base.378700439" name="GNU ARM C Linker" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base">
+								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.nostdlibs.1492547652" name="No startup or default libs (-nostdlib)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.nostdlibs" value="false" valueType="boolean"/>
+								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.1078958394" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+							<tool id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.linker.base.1438855460" name="GNU ARM C++ Linker" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.linker.base">
+								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.linker.nostdlibs.469244218" name="No startup or default libs (-nostdlib)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.linker.nostdlibs" value="false" valueType="boolean"/>
+							</tool>
+							<tool id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.archiver.base.1477972915" name="GNU ARM Archiver" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.archiver.base"/>
+						</toolChain>
+					</folderInfo>
+					<sourceEntries>
+						<entry excluding="RadioConfig/radio-config-gen.h|RadioConfig/radio-config-wds-gen.h|RadioConfig/radio-config-user-input.h|RadioConfig/app-config.h" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+		<cconfiguration id="com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt.debug#com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:7.2.1.20170904">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt.debug#com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:7.2.1.20170904" moduleId="org.eclipse.cdt.core.settings" name="GNU ARM v7.2.1 - Debug">
+				<macros>
+					<stringMacro name="StudioSdkPath" type="VALUE_PATH_DIR" value="${StudioSdkPathFromID:com.silabs.sdk.stack.super:1.1.1._1835326931}"/>
+					<stringMacro name="StudioToolchainPath" type="VALUE_PATH_DIR" value="${StudioToolchainPathFromID:com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:7.2.1.20170904}"/>
+				</macros>
+				<externalSettings/>
+				<extensions>
+					<extension id="com.silabs.ss.framework.debugger.core.HEX" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="com.silabs.ss.framework.debugger.core.EBL" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="com.silabs.ss.framework.debugger.core.GBL" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="com.silabs.ss.framework.debugger.core.BIN" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="com.silabs.ss.framework.debugger.core.S37" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GNU_ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule buildConfig.stockConfigId="com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt.debug#com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:7.2.1.20170904" cppBuildConfig.builtinIncludes="studio:/sdk/platform/emdrv/common/inc/ studio:/sdk/platform/emdrv/dmadrv/config/ studio:/sdk/platform/emdrv/ezradiodrv/config/ studio:/sdk/platform/emdrv/nvm/config/ studio:/sdk/platform/emdrv/rtcdrv/config/ studio:/sdk/platform/emdrv/spidrv/config/ studio:/sdk/platform/emdrv/tempdrv/config/ studio:/sdk/platform/emdrv/uartdrv/config/ studio:/sdk/platform/emdrv/ustimer/config/ studio:/sdk/hardware/kit/common/drivers/ studio:/sdk/platform/emdrv/ezradiodrv/common/inc/ studio:/sdk/platform/emdrv/ezradiodrv/common/inc/si4x6x/ studio:/sdk/platform/emdrv/ezradiodrv/plugins/inc/ studio:/sdk/platform/emdrv/ezradiodrv/si4460/inc/ studio:/sdk/platform/emdrv/dmadrv/inc/ studio:/sdk/platform/emdrv/gpiointerrupt/inc/ studio:/sdk/platform/emdrv/nvm/inc/ studio:/sdk/platform/emdrv/rtcdrv/inc/ studio:/sdk/platform/emdrv/sleep/inc/ studio:/sdk/platform/emdrv/spidrv/inc/ studio:/sdk/platform/emdrv/uartdrv/inc/ studio:/sdk/platform/emdrv/ustimer/inc/ studio:/sdk/platform/emdrv/tempdrv/inc/ studio:/sdk/platform/Device/SiliconLabs/EZR32LG/Include/ studio:/sdk/platform/middleware/glib/ studio:/sdk/platform/middleware/glib/glib/ studio:/sdk/platform/middleware/glib/dmd/ studio:/sdk/platform/middleware/glib/dmd/ssd2119/ studio:/sdk/hardware/kit/common/bsp/ studio:/sdk/hardware/kit/SLWSTK6200A_EZR32LG/config/ studio:/sdk/platform/emlib/inc/ studio:/sdk/platform/CMSIS/Include/ studio:/sdk/platform/emdrv/common/inc/ studio:/sdk/platform/emdrv/dmadrv/config/ studio:/sdk/platform/emdrv/ezradiodrv/config/ studio:/sdk/platform/emdrv/nvm/config/ studio:/sdk/platform/emdrv/rtcdrv/config/ studio:/sdk/platform/emdrv/spidrv/config/ studio:/sdk/platform/emdrv/tempdrv/config/ studio:/sdk/platform/emdrv/uartdrv/config/ studio:/sdk/platform/emdrv/ustimer/config/ studio:/sdk/hardware/kit/common/drivers/ studio:/sdk/platform/emdrv/ezradiodrv/common/inc/ studio:/sdk/platform/emdrv/ezradiodrv/common/inc/si4x6x/ studio:/sdk/platform/emdrv/ezradiodrv/plugins/inc/ studio:/sdk/platform/emdrv/ezradiodrv/si4460/inc/ studio:/sdk/platform/emdrv/dmadrv/inc/ studio:/sdk/platform/emdrv/gpiointerrupt/inc/ studio:/sdk/platform/emdrv/nvm/inc/ studio:/sdk/platform/emdrv/rtcdrv/inc/ studio:/sdk/platform/emdrv/sleep/inc/ studio:/sdk/platform/emdrv/spidrv/inc/ studio:/sdk/platform/emdrv/uartdrv/inc/ studio:/sdk/platform/emdrv/ustimer/inc/ studio:/sdk/platform/emdrv/tempdrv/inc/ studio:/sdk/platform/Device/SiliconLabs/EZR32LG/Include/ studio:/sdk/platform/middleware/glib/ studio:/sdk/platform/middleware/glib/glib/ studio:/sdk/platform/middleware/glib/dmd/ studio:/sdk/platform/middleware/glib/dmd/ssd2119/ studio:/sdk/hardware/kit/common/bsp/ studio:/sdk/hardware/kit/SLWSTK6200A_EZR32LG/config/ studio:/sdk/platform/emlib/inc/ studio:/sdk/platform/CMSIS/Include/" cppBuildConfig.builtinLibraryFiles="" cppBuildConfig.builtinLibraryNames="" cppBuildConfig.builtinLibraryObjects="" cppBuildConfig.builtinLibraryPaths="" cppBuildConfig.builtinMacros="EZR32LG330F256R60 EZR32LG330F256R60" moduleId="com.silabs.ss.framework.ide.project.core.cpp" projectCommon.referencedModules="[{&quot;builtinExcludes&quot;:[],&quot;builtinSources&quot;:[],&quot;builtin&quot;:true,&quot;module&quot;:&quot;&lt;project:MModule xmlns:project=\&quot;http://www.silabs.com/ss/Project.ecore\&quot; builtin=\&quot;true\&quot; id=\&quot;com.silabs.sdk.exx32.common.CMSIS\&quot;&gt;\r\n  &lt;exclusions pattern=\&quot;.*\&quot;/&gt;\r\n&lt;/project:MModule&gt;&quot;},{&quot;builtinExcludes&quot;:[],&quot;builtinSources&quot;:[&quot;Drivers/dmadrv.c&quot;,&quot;Drivers/ezradio_comm.c&quot;,&quot;Drivers/ezradio_hal.c&quot;,&quot;Drivers/ezradio_api_lib.c&quot;,&quot;Drivers/ezradio_direct_transmit_plugin.c&quot;,&quot;Drivers/ezradio_unmod_carrier_plugin.c&quot;,&quot;Drivers/ezradio_plugin_manager.c&quot;,&quot;Drivers/ezradio_transmit_plugin.c&quot;,&quot;Drivers/ezradio_direct_receive_plugin.c&quot;,&quot;Drivers/ezradio_pn9_plugin.c&quot;,&quot;Drivers/ezradio_crcerror_plugin.c&quot;,&quot;Drivers/ezradio_receive_plugin.c&quot;,&quot;Drivers/ezradio_auto_ack_plugin.c&quot;,&quot;Drivers/gpiointerrupt.c&quot;,&quot;Drivers/rtcdriver.c&quot;,&quot;Drivers/spidrv.c&quot;,&quot;Drivers/ustimer.c&quot;,&quot;Drivers/si4x6x/ezradio_api_lib_add.c&quot;],&quot;builtin&quot;:true,&quot;module&quot;:&quot;&lt;project:MModule xmlns:project=\&quot;http://www.silabs.com/ss/Project.ecore\&quot; builtin=\&quot;true\&quot; id=\&quot;com.silabs.sdk.exx32.common.emdrv\&quot;&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/dmadrv.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_api_lib.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_comm.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_hal.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_api_lib_add.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_plugin_manager.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_transmit_plugin.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_receive_plugin.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_crcerror_plugin.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_auto_ack_plugin.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_unmod_carrier_plugin.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_pn9_plugin.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_direct_transmit_plugin.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_direct_receive_plugin.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/gpiointerrupt.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/rtcdriver.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/spidrv.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ustimer.c\&quot;/&gt;\r\n&lt;/project:MModule&gt;&quot;},{&quot;builtinExcludes&quot;:[],&quot;builtinSources&quot;:[&quot;CMSIS/EZR32LG/startup_gcc_ezr32lg.s&quot;,&quot;CMSIS/EZR32LG/system_ezr32lg.c&quot;],&quot;builtin&quot;:true,&quot;module&quot;:&quot;&lt;project:MModule xmlns:project=\&quot;http://www.silabs.com/ss/Project.ecore\&quot; builtin=\&quot;true\&quot; id=\&quot;com.silabs.sdk.exx32.part\&quot;&gt;\r\n  &lt;inclusions pattern=\&quot;CMSIS/.*/startup_.*_.*.s\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;CMSIS/.*/system_.*.c\&quot;/&gt;\r\n&lt;/project:MModule&gt;&quot;},{&quot;builtinExcludes&quot;:[],&quot;builtinSources&quot;:[&quot;emlib/em_usart.c&quot;,&quot;emlib/em_prs.c&quot;,&quot;emlib/em_cmu.c&quot;,&quot;emlib/em_gpio.c&quot;,&quot;emlib/em_core.c&quot;,&quot;emlib/em_timer.c&quot;,&quot;emlib/em_dma.c&quot;,&quot;emlib/em_assert.c&quot;,&quot;emlib/em_system.c&quot;,&quot;emlib/em_emu.c&quot;,&quot;emlib/em_rtc.c&quot;,&quot;emlib/em_pcnt.c&quot;],&quot;builtin&quot;:true,&quot;module&quot;:&quot;&lt;project:MModule xmlns:project=\&quot;http://www.silabs.com/ss/Project.ecore\&quot; builtin=\&quot;true\&quot; id=\&quot;com.silabs.sdk.exx32.common.emlib\&quot;&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_assert.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_cmu.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_core.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_emu.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_dma.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_gpio.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_pcnt.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_prs.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_rtc.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_system.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_timer.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_usart.c\&quot;/&gt;\r\n&lt;/project:MModule&gt;&quot;},{&quot;builtinExcludes&quot;:[],&quot;builtinSources&quot;:[],&quot;builtin&quot;:true,&quot;module&quot;:&quot;&lt;project:MModule xmlns:project=\&quot;http://www.silabs.com/ss/Project.ecore\&quot; builtin=\&quot;true\&quot; id=\&quot;com.silabs.sdk.exx32.board\&quot;&gt;\r\n  &lt;exclusions pattern=\&quot;.*\&quot;/&gt;\r\n&lt;/project:MModule&gt;&quot;},{&quot;builtinExcludes&quot;:[],&quot;builtinSources&quot;:[&quot;Drivers/udelay.c&quot;,&quot;Drivers/retargetio.c&quot;,&quot;Drivers/displayls013b7dh03.c&quot;,&quot;Drivers/dmactrl.c&quot;,&quot;Drivers/textdisplay.c&quot;,&quot;Drivers/display.c&quot;,&quot;Drivers/displaypalemlib.c&quot;,&quot;Drivers/retargettextdisplay.c&quot;],&quot;builtin&quot;:true,&quot;module&quot;:&quot;&lt;project:MModule xmlns:project=\&quot;http://www.silabs.com/ss/Project.ecore\&quot; builtin=\&quot;true\&quot; id=\&quot;com.silabs.sdk.exx32.common.drivers\&quot;&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers/display.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers/displayls013b7dh03.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers/displaypalemlib.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers/dmactrl.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers/retargetio.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers/retargettextdisplay.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers/textdisplay.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers/udelay.c\&quot;/&gt;\r\n&lt;/project:MModule&gt;&quot;},{&quot;builtinExcludes&quot;:[],&quot;builtinSources&quot;:[],&quot;builtin&quot;:true,&quot;module&quot;:&quot;&lt;project:MModule xmlns:project=\&quot;http://www.silabs.com/ss/Project.ecore\&quot; builtin=\&quot;true\&quot; id=\&quot;com.silabs.sdk.exx32.common.bsp\&quot;&gt;\r\n  &lt;exclusions pattern=\&quot;.*\&quot;/&gt;\r\n&lt;/project:MModule&gt;&quot;},{&quot;builtinExcludes&quot;:[],&quot;builtinSources&quot;:[],&quot;builtin&quot;:true,&quot;module&quot;:&quot;&lt;project:MModule xmlns:project=\&quot;http://www.silabs.com/ss/Project.ecore\&quot; builtin=\&quot;true\&quot; id=\&quot;com.silabs.sdk.exx32.external.glib\&quot;&gt;\r\n  &lt;exclusions pattern=\&quot;.*\&quot;/&gt;\r\n&lt;/project:MModule&gt;&quot;}]" projectCommon.toolchainId="com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:7.2.1.20170904"/>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" description="" id="com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt.debug#com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:7.2.1.20170904" name="GNU ARM v7.2.1 - Debug" parent="com.silabs.ide.si32.gcc.cdt.managedbuild.config.gnu.exe">
+					<folderInfo id="com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt.debug#com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:7.2.1.20170904." name="/" resourcePath="">
+						<toolChain id="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.exe.2079542645" name="Si32 GNU ARM" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.exe">
+							<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.debug.level.1518195893" name="Debug Level" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.debug.level" value="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.debug.level.default" valueType="enumerated"/>
+							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF;org.eclipse.cdt.core.GNU_ELF;com.silabs.ss.framework.debugger.core.BIN;com.silabs.ss.framework.debugger.core.HEX;com.silabs.ss.framework.debugger.core.S37;com.silabs.ss.framework.debugger.core.EBL;com.silabs.ss.framework.debugger.core.GBL" id="com.silabs.ide.si32.gcc.cdt.managedbuild.target.gnu.platform.base.505730753" isAbstract="false" name="Debug Platform" osList="win32,linux,macosx" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.target.gnu.platform.base"/>
+							<builder buildPath="${workspace_loc:/thesis_gecko}/GNU ARM v7.2.1 - Debug" id="com.silabs.ide.si32.gcc.cdt.managedbuild.target.gnu.builder.base.1752986740" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Si32 GNU ARM Builder" parallelBuildOn="true" parallelizationNumber="optimal" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.target.gnu.builder.base"/>
+							<tool id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base.738569002" name="GNU ARM C Compiler" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base">
+								<option id="gnu.c.compiler.option.optimization.level.837710370" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.size" valueType="enumerated"/>
+								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.def.symbols.1630995344" name="Defined symbols (-D)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.def.symbols" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="SL_WSTK6200A=1"/>
+									<listOptionValue builtIn="false" value="EZRADIO_DRIVER_EXTENDED_SUPPORT=1"/>
+									<listOptionValue builtIn="false" value="EZRADIO_DRIVER_FULL_SUPPORT=1"/>
+									<listOptionValue builtIn="false" value="DEBUG=1"/>
+									<listOptionValue builtIn="false" value="EZR32LG330F256R60=1"/>
+								</option>
+								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.debug.builtin.464898112" name="Always branch to builtin functions (-fno-builtin)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.debug.builtin" value="true" valueType="boolean"/>
+								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.debug.prolog.2021357270" name="Generate debugger-friendly prologs (-mno-sched-prolog)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.debug.prolog" value="true" valueType="boolean"/>
+								<option id="gnu.c.compiler.option.include.paths.517963192" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/app/mcu_example/SLWSTK6200A_EZR32LG/ezradio_simple_trx/config/RadioConfig&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/RadioConfig}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/app/mcu_example/SLWSTK6200A_EZR32LG/ezradio_simple_trx&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/app/mcu_example/SLWSTK6200A_EZR32LG/ezradio_simple_trx/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/common/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/dmadrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/nvm/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/rtcdrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/spidrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/tempdrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/uartdrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ustimer/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/hardware/kit/common/drivers&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/common/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/common/inc/si4x6x&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/plugins/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/si4460/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/dmadrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/gpiointerrupt/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/nvm/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/rtcdrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/sleep/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/spidrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/uartdrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ustimer/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/tempdrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/Device/SiliconLabs/EZR32LG/Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/middleware/glib&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/middleware/glib/glib&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/middleware/glib/dmd&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/middleware/glib/dmd/ssd2119&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/hardware/kit/common/bsp&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/hardware/kit/SLWSTK6200A_EZR32LG/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emlib/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/CMSIS/Include&quot;"/>
+								</option>
+								<inputType id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.input.285055767" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							</tool>
+							<tool id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.base.1498281151" name="GNU ARM C++ Compiler" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.base">
+								<option id="gnu.cpp.compiler.option.optimization.level.1174184169" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
+								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.debug.builtin.1309280348" name="Always branch to builtin functions (-fno-builtin)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.debug.builtin" value="true" valueType="boolean"/>
+								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.debug.prolog.508070354" name="Generate debugger-friendly prologs (-mno-sched-prolog)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.debug.prolog" value="true" valueType="boolean"/>
+							</tool>
+							<tool id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.base.717807690" name="GNU ARM Assembler" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.base">
+								<option id="gnu.both.asm.option.include.paths.792443058" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/app/mcu_example/SLWSTK6200A_EZR32LG/ezradio_simple_trx/config/RadioConfig&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/RadioConfig}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/app/mcu_example/SLWSTK6200A_EZR32LG/ezradio_simple_trx&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/app/mcu_example/SLWSTK6200A_EZR32LG/ezradio_simple_trx/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/common/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/dmadrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/nvm/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/rtcdrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/spidrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/tempdrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/uartdrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ustimer/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/hardware/kit/common/drivers&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/common/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/common/inc/si4x6x&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/plugins/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/si4460/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/dmadrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/gpiointerrupt/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/nvm/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/rtcdrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/sleep/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/spidrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/uartdrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ustimer/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/tempdrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/Device/SiliconLabs/EZR32LG/Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/middleware/glib&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/middleware/glib/glib&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/middleware/glib/dmd&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/middleware/glib/dmd/ssd2119&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/hardware/kit/common/bsp&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/hardware/kit/SLWSTK6200A_EZR32LG/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emlib/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/CMSIS/Include&quot;"/>
+								</option>
+								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.as.def.symbols.1812762683" name="Defined symbols (-D)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.as.def.symbols" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="SL_WSTK6200A=1"/>
+									<listOptionValue builtIn="false" value="EZRADIO_DRIVER_EXTENDED_SUPPORT=1"/>
+									<listOptionValue builtIn="false" value="EZRADIO_DRIVER_FULL_SUPPORT=1"/>
+									<listOptionValue builtIn="false" value="EZR32LG330F256R60=1"/>
+								</option>
+								<inputType id="org.eclipse.cdt.core.asmSource.1432876745" superClass="org.eclipse.cdt.core.asmSource"/>
+							</tool>
+							<tool id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base.495639522" name="GNU ARM C Linker" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base">
+								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.nostdlibs.979010327" name="No startup or default libs (-nostdlib)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.nostdlibs" value="false" valueType="boolean"/>
+								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.2041150627" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+							<tool id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.linker.base.380028148" name="GNU ARM C++ Linker" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.linker.base">
+								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.linker.nostdlibs.637553283" name="No startup or default libs (-nostdlib)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.linker.nostdlibs" value="false" valueType="boolean"/>
+							</tool>
+							<tool id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.archiver.base.1581267588" name="GNU ARM Archiver" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.archiver.base"/>
+						</toolChain>
+					</folderInfo>
+					<sourceEntries>
+						<entry excluding="RadioConfig/radio-config-gen.h|RadioConfig/radio-config-wds-gen.h|RadioConfig/radio-config-user-input.h|RadioConfig/app-config.h" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+		<cconfiguration id="com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt.release#com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:7.2.1.20170904">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt.release#com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:7.2.1.20170904" moduleId="org.eclipse.cdt.core.settings" name="GNU ARM v7.2.1 - Release">
+				<macros>
+					<stringMacro name="StudioSdkPath" type="VALUE_PATH_DIR" value="${StudioSdkPathFromID:com.silabs.sdk.stack.super:1.1.1._1835326931}"/>
+					<stringMacro name="StudioToolchainPath" type="VALUE_PATH_DIR" value="${StudioToolchainPathFromID:com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:7.2.1.20170904}"/>
+				</macros>
+				<externalSettings/>
+				<extensions>
+					<extension id="com.silabs.ss.framework.debugger.core.HEX" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="com.silabs.ss.framework.debugger.core.EBL" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="com.silabs.ss.framework.debugger.core.GBL" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="com.silabs.ss.framework.debugger.core.BIN" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="com.silabs.ss.framework.debugger.core.S37" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GNU_ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule buildConfig.stockConfigId="com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt.release#com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:7.2.1.20170904" cppBuildConfig.builtinIncludes="studio:/sdk/platform/emdrv/common/inc/ studio:/sdk/platform/emdrv/dmadrv/config/ studio:/sdk/platform/emdrv/ezradiodrv/config/ studio:/sdk/platform/emdrv/nvm/config/ studio:/sdk/platform/emdrv/rtcdrv/config/ studio:/sdk/platform/emdrv/spidrv/config/ studio:/sdk/platform/emdrv/tempdrv/config/ studio:/sdk/platform/emdrv/uartdrv/config/ studio:/sdk/platform/emdrv/ustimer/config/ studio:/sdk/hardware/kit/common/drivers/ studio:/sdk/platform/emdrv/ezradiodrv/common/inc/ studio:/sdk/platform/emdrv/ezradiodrv/common/inc/si4x6x/ studio:/sdk/platform/emdrv/ezradiodrv/plugins/inc/ studio:/sdk/platform/emdrv/ezradiodrv/si4460/inc/ studio:/sdk/platform/emdrv/dmadrv/inc/ studio:/sdk/platform/emdrv/gpiointerrupt/inc/ studio:/sdk/platform/emdrv/nvm/inc/ studio:/sdk/platform/emdrv/rtcdrv/inc/ studio:/sdk/platform/emdrv/sleep/inc/ studio:/sdk/platform/emdrv/spidrv/inc/ studio:/sdk/platform/emdrv/uartdrv/inc/ studio:/sdk/platform/emdrv/ustimer/inc/ studio:/sdk/platform/emdrv/tempdrv/inc/ studio:/sdk/platform/Device/SiliconLabs/EZR32LG/Include/ studio:/sdk/platform/middleware/glib/ studio:/sdk/platform/middleware/glib/glib/ studio:/sdk/platform/middleware/glib/dmd/ studio:/sdk/platform/middleware/glib/dmd/ssd2119/ studio:/sdk/hardware/kit/common/bsp/ studio:/sdk/hardware/kit/SLWSTK6200A_EZR32LG/config/ studio:/sdk/platform/emlib/inc/ studio:/sdk/platform/CMSIS/Include/ studio:/sdk/platform/emdrv/common/inc/ studio:/sdk/platform/emdrv/dmadrv/config/ studio:/sdk/platform/emdrv/ezradiodrv/config/ studio:/sdk/platform/emdrv/nvm/config/ studio:/sdk/platform/emdrv/rtcdrv/config/ studio:/sdk/platform/emdrv/spidrv/config/ studio:/sdk/platform/emdrv/tempdrv/config/ studio:/sdk/platform/emdrv/uartdrv/config/ studio:/sdk/platform/emdrv/ustimer/config/ studio:/sdk/hardware/kit/common/drivers/ studio:/sdk/platform/emdrv/ezradiodrv/common/inc/ studio:/sdk/platform/emdrv/ezradiodrv/common/inc/si4x6x/ studio:/sdk/platform/emdrv/ezradiodrv/plugins/inc/ studio:/sdk/platform/emdrv/ezradiodrv/si4460/inc/ studio:/sdk/platform/emdrv/dmadrv/inc/ studio:/sdk/platform/emdrv/gpiointerrupt/inc/ studio:/sdk/platform/emdrv/nvm/inc/ studio:/sdk/platform/emdrv/rtcdrv/inc/ studio:/sdk/platform/emdrv/sleep/inc/ studio:/sdk/platform/emdrv/spidrv/inc/ studio:/sdk/platform/emdrv/uartdrv/inc/ studio:/sdk/platform/emdrv/ustimer/inc/ studio:/sdk/platform/emdrv/tempdrv/inc/ studio:/sdk/platform/Device/SiliconLabs/EZR32LG/Include/ studio:/sdk/platform/middleware/glib/ studio:/sdk/platform/middleware/glib/glib/ studio:/sdk/platform/middleware/glib/dmd/ studio:/sdk/platform/middleware/glib/dmd/ssd2119/ studio:/sdk/hardware/kit/common/bsp/ studio:/sdk/hardware/kit/SLWSTK6200A_EZR32LG/config/ studio:/sdk/platform/emlib/inc/ studio:/sdk/platform/CMSIS/Include/" cppBuildConfig.builtinLibraryFiles="" cppBuildConfig.builtinLibraryNames="" cppBuildConfig.builtinLibraryObjects="" cppBuildConfig.builtinLibraryPaths="" cppBuildConfig.builtinMacros="EZR32LG330F256R60 EZR32LG330F256R60" moduleId="com.silabs.ss.framework.ide.project.core.cpp" projectCommon.referencedModules="[{&quot;builtinExcludes&quot;:[],&quot;builtinSources&quot;:[&quot;emlib/em_usart.c&quot;,&quot;emlib/em_prs.c&quot;,&quot;emlib/em_cmu.c&quot;,&quot;emlib/em_gpio.c&quot;,&quot;emlib/em_core.c&quot;,&quot;emlib/em_timer.c&quot;,&quot;emlib/em_dma.c&quot;,&quot;emlib/em_assert.c&quot;,&quot;emlib/em_system.c&quot;,&quot;emlib/em_emu.c&quot;,&quot;emlib/em_rtc.c&quot;,&quot;emlib/em_pcnt.c&quot;],&quot;builtin&quot;:true,&quot;module&quot;:&quot;&lt;project:MModule xmlns:project=\&quot;http://www.silabs.com/ss/Project.ecore\&quot; builtin=\&quot;true\&quot; id=\&quot;com.silabs.sdk.exx32.common.emlib\&quot;&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_assert.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_cmu.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_core.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_emu.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_dma.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_gpio.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_pcnt.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_prs.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_rtc.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_system.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_timer.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;emlib/em_usart.c\&quot;/&gt;\r\n&lt;/project:MModule&gt;&quot;},{&quot;builtinExcludes&quot;:[],&quot;builtinSources&quot;:[],&quot;builtin&quot;:true,&quot;module&quot;:&quot;&lt;project:MModule xmlns:project=\&quot;http://www.silabs.com/ss/Project.ecore\&quot; builtin=\&quot;true\&quot; id=\&quot;com.silabs.sdk.exx32.external.glib\&quot;&gt;\r\n  &lt;exclusions pattern=\&quot;.*\&quot;/&gt;\r\n&lt;/project:MModule&gt;&quot;},{&quot;builtinExcludes&quot;:[],&quot;builtinSources&quot;:[&quot;Drivers/dmadrv.c&quot;,&quot;Drivers/ezradio_comm.c&quot;,&quot;Drivers/ezradio_hal.c&quot;,&quot;Drivers/ezradio_api_lib.c&quot;,&quot;Drivers/ezradio_direct_transmit_plugin.c&quot;,&quot;Drivers/ezradio_unmod_carrier_plugin.c&quot;,&quot;Drivers/ezradio_plugin_manager.c&quot;,&quot;Drivers/ezradio_transmit_plugin.c&quot;,&quot;Drivers/ezradio_direct_receive_plugin.c&quot;,&quot;Drivers/ezradio_pn9_plugin.c&quot;,&quot;Drivers/ezradio_crcerror_plugin.c&quot;,&quot;Drivers/ezradio_receive_plugin.c&quot;,&quot;Drivers/ezradio_auto_ack_plugin.c&quot;,&quot;Drivers/gpiointerrupt.c&quot;,&quot;Drivers/rtcdriver.c&quot;,&quot;Drivers/spidrv.c&quot;,&quot;Drivers/ustimer.c&quot;,&quot;Drivers/si4x6x/ezradio_api_lib_add.c&quot;],&quot;builtin&quot;:true,&quot;module&quot;:&quot;&lt;project:MModule xmlns:project=\&quot;http://www.silabs.com/ss/Project.ecore\&quot; builtin=\&quot;true\&quot; id=\&quot;com.silabs.sdk.exx32.common.emdrv\&quot;&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/dmadrv.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_api_lib.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_comm.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_hal.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_api_lib_add.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_plugin_manager.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_transmit_plugin.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_receive_plugin.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_crcerror_plugin.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_auto_ack_plugin.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_unmod_carrier_plugin.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_pn9_plugin.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_direct_transmit_plugin.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ezradio_direct_receive_plugin.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/gpiointerrupt.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/rtcdriver.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/spidrv.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers(/.*){0,1}/ustimer.c\&quot;/&gt;\r\n&lt;/project:MModule&gt;&quot;},{&quot;builtinExcludes&quot;:[],&quot;builtinSources&quot;:[&quot;CMSIS/EZR32LG/startup_gcc_ezr32lg.s&quot;,&quot;CMSIS/EZR32LG/system_ezr32lg.c&quot;],&quot;builtin&quot;:true,&quot;module&quot;:&quot;&lt;project:MModule xmlns:project=\&quot;http://www.silabs.com/ss/Project.ecore\&quot; builtin=\&quot;true\&quot; id=\&quot;com.silabs.sdk.exx32.part\&quot;&gt;\r\n  &lt;inclusions pattern=\&quot;CMSIS/.*/startup_.*_.*.s\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;CMSIS/.*/system_.*.c\&quot;/&gt;\r\n&lt;/project:MModule&gt;&quot;},{&quot;builtinExcludes&quot;:[],&quot;builtinSources&quot;:[],&quot;builtin&quot;:true,&quot;module&quot;:&quot;&lt;project:MModule xmlns:project=\&quot;http://www.silabs.com/ss/Project.ecore\&quot; builtin=\&quot;true\&quot; id=\&quot;com.silabs.sdk.exx32.common.bsp\&quot;&gt;\r\n  &lt;exclusions pattern=\&quot;.*\&quot;/&gt;\r\n&lt;/project:MModule&gt;&quot;},{&quot;builtinExcludes&quot;:[],&quot;builtinSources&quot;:[],&quot;builtin&quot;:true,&quot;module&quot;:&quot;&lt;project:MModule xmlns:project=\&quot;http://www.silabs.com/ss/Project.ecore\&quot; builtin=\&quot;true\&quot; id=\&quot;com.silabs.sdk.exx32.common.CMSIS\&quot;&gt;\r\n  &lt;exclusions pattern=\&quot;.*\&quot;/&gt;\r\n&lt;/project:MModule&gt;&quot;},{&quot;builtinExcludes&quot;:[],&quot;builtinSources&quot;:[],&quot;builtin&quot;:true,&quot;module&quot;:&quot;&lt;project:MModule xmlns:project=\&quot;http://www.silabs.com/ss/Project.ecore\&quot; builtin=\&quot;true\&quot; id=\&quot;com.silabs.sdk.exx32.board\&quot;&gt;\r\n  &lt;exclusions pattern=\&quot;.*\&quot;/&gt;\r\n&lt;/project:MModule&gt;&quot;},{&quot;builtinExcludes&quot;:[],&quot;builtinSources&quot;:[&quot;Drivers/udelay.c&quot;,&quot;Drivers/retargetio.c&quot;,&quot;Drivers/displayls013b7dh03.c&quot;,&quot;Drivers/dmactrl.c&quot;,&quot;Drivers/textdisplay.c&quot;,&quot;Drivers/display.c&quot;,&quot;Drivers/displaypalemlib.c&quot;,&quot;Drivers/retargettextdisplay.c&quot;],&quot;builtin&quot;:true,&quot;module&quot;:&quot;&lt;project:MModule xmlns:project=\&quot;http://www.silabs.com/ss/Project.ecore\&quot; builtin=\&quot;true\&quot; id=\&quot;com.silabs.sdk.exx32.common.drivers\&quot;&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers/display.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers/displayls013b7dh03.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers/displaypalemlib.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers/dmactrl.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers/retargetio.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers/retargettextdisplay.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers/textdisplay.c\&quot;/&gt;\r\n  &lt;inclusions pattern=\&quot;Drivers/udelay.c\&quot;/&gt;\r\n&lt;/project:MModule&gt;&quot;}]" projectCommon.toolchainId="com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:7.2.1.20170904"/>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" description="" id="com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt.release#com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:7.2.1.20170904" name="GNU ARM v7.2.1 - Release" parent="com.silabs.ide.si32.gcc.cdt.managedbuild.config.gnu.exe">
+					<folderInfo id="com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt.release#com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:7.2.1.20170904." name="/" resourcePath="">
+						<toolChain id="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.exe.692996592" name="Si32 GNU ARM" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.exe">
+							<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.debug.level.1929058392" name="Debug Level" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.debug.level" value="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.debug.level.default" valueType="enumerated"/>
+							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF;org.eclipse.cdt.core.GNU_ELF;com.silabs.ss.framework.debugger.core.BIN;com.silabs.ss.framework.debugger.core.HEX;com.silabs.ss.framework.debugger.core.S37;com.silabs.ss.framework.debugger.core.EBL;com.silabs.ss.framework.debugger.core.GBL" id="com.silabs.ide.si32.gcc.cdt.managedbuild.target.gnu.platform.base.942731211" isAbstract="false" name="Debug Platform" osList="win32,linux,macosx" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.target.gnu.platform.base"/>
+							<builder buildPath="${workspace_loc:/thesis_gecko}/GNU ARM v7.2.1 - Release" id="com.silabs.ide.si32.gcc.cdt.managedbuild.target.gnu.builder.base.1225271205" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Si32 GNU ARM Builder" parallelBuildOn="true" parallelizationNumber="optimal" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.target.gnu.builder.base"/>
+							<tool id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base.1675045842" name="GNU ARM C Compiler" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base">
+								<option id="gnu.c.compiler.option.optimization.level.1881780871" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.size" valueType="enumerated"/>
+								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.def.symbols.2075498183" name="Defined symbols (-D)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.def.symbols" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="SL_WSTK6200A=1"/>
+									<listOptionValue builtIn="false" value="EZRADIO_DRIVER_EXTENDED_SUPPORT=1"/>
+									<listOptionValue builtIn="false" value="EZRADIO_DRIVER_FULL_SUPPORT=1"/>
+									<listOptionValue builtIn="false" value="NDEBUG=1"/>
+									<listOptionValue builtIn="false" value="EZR32LG330F256R60=1"/>
+								</option>
+								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.debug.builtin.1085263458" name="Always branch to builtin functions (-fno-builtin)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.debug.builtin" value="false" valueType="boolean"/>
+								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.debug.prolog.112570806" name="Generate debugger-friendly prologs (-mno-sched-prolog)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.debug.prolog" value="false" valueType="boolean"/>
+								<option id="gnu.c.compiler.option.include.paths.1184320132" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/app/mcu_example/SLWSTK6200A_EZR32LG/ezradio_simple_trx/config/RadioConfig&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/RadioConfig}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/app/mcu_example/SLWSTK6200A_EZR32LG/ezradio_simple_trx&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/app/mcu_example/SLWSTK6200A_EZR32LG/ezradio_simple_trx/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/common/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/dmadrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/nvm/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/rtcdrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/spidrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/tempdrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/uartdrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ustimer/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/hardware/kit/common/drivers&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/common/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/common/inc/si4x6x&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/plugins/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/si4460/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/dmadrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/gpiointerrupt/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/nvm/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/rtcdrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/sleep/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/spidrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/uartdrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ustimer/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/tempdrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/Device/SiliconLabs/EZR32LG/Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/middleware/glib&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/middleware/glib/glib&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/middleware/glib/dmd&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/middleware/glib/dmd/ssd2119&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/hardware/kit/common/bsp&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/hardware/kit/SLWSTK6200A_EZR32LG/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emlib/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/CMSIS/Include&quot;"/>
+								</option>
+								<inputType id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.input.360166857" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							</tool>
+							<tool id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.base.1027778234" name="GNU ARM C++ Compiler" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.base">
+								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.debug.builtin.325449212" name="Always branch to builtin functions (-fno-builtin)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.debug.builtin" value="false" valueType="boolean"/>
+								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.debug.prolog.223723547" name="Generate debugger-friendly prologs (-mno-sched-prolog)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.debug.prolog" value="false" valueType="boolean"/>
+							</tool>
+							<tool id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.base.636380399" name="GNU ARM Assembler" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.base">
+								<option id="gnu.both.asm.option.include.paths.1550677611" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/app/mcu_example/SLWSTK6200A_EZR32LG/ezradio_simple_trx/config/RadioConfig&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/RadioConfig}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/app/mcu_example/SLWSTK6200A_EZR32LG/ezradio_simple_trx&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/app/mcu_example/SLWSTK6200A_EZR32LG/ezradio_simple_trx/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/common/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/dmadrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/nvm/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/rtcdrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/spidrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/tempdrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/uartdrv/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ustimer/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/hardware/kit/common/drivers&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/common/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/common/inc/si4x6x&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/plugins/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ezradiodrv/si4460/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/dmadrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/gpiointerrupt/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/nvm/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/rtcdrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/sleep/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/spidrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/uartdrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/ustimer/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emdrv/tempdrv/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/Device/SiliconLabs/EZR32LG/Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/middleware/glib&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/middleware/glib/glib&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/middleware/glib/dmd&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/middleware/glib/dmd/ssd2119&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/hardware/kit/common/bsp&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/hardware/kit/SLWSTK6200A_EZR32LG/config&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/emlib/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/CMSIS/Include&quot;"/>
+								</option>
+								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.as.def.symbols.1585874450" name="Defined symbols (-D)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.as.def.symbols" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="SL_WSTK6200A=1"/>
+									<listOptionValue builtIn="false" value="EZRADIO_DRIVER_EXTENDED_SUPPORT=1"/>
+									<listOptionValue builtIn="false" value="EZRADIO_DRIVER_FULL_SUPPORT=1"/>
+									<listOptionValue builtIn="false" value="EZR32LG330F256R60=1"/>
+								</option>
+								<inputType id="org.eclipse.cdt.core.asmSource.1155958918" superClass="org.eclipse.cdt.core.asmSource"/>
+							</tool>
+							<tool id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base.394663937" name="GNU ARM C Linker" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base">
+								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.nostdlibs.179988451" name="No startup or default libs (-nostdlib)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.nostdlibs" value="false" valueType="boolean"/>
+								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.2093365308" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+							<tool id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.linker.base.1743967298" name="GNU ARM C++ Linker" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.linker.base">
+								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.linker.nostdlibs.159476746" name="No startup or default libs (-nostdlib)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.linker.nostdlibs" value="false" valueType="boolean"/>
+							</tool>
+							<tool id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.archiver.base.1109084037" name="GNU ARM Archiver" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.archiver.base"/>
+						</toolChain>
+					</folderInfo>
+					<sourceEntries>
+						<entry excluding="RadioConfig/radio-config-gen.h|RadioConfig/radio-config-wds-gen.h|RadioConfig/radio-config-user-input.h|RadioConfig/app-config.h" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+	</storageModule>
+	<storageModule generalProj.esf.protocolNames="standalone-radio-config" moduleId="com.silabs.ss.framework.ide.project.core.cpp" project.generation="393" projectCommon.boardIds="brd4502a:0.0.0.B00" projectCommon.buildArtifactType="EXE" projectCommon.importModeId="COPY" projectCommon.partId="mcu.arm.ezr32.lg.ezr32lg330f256r60g" projectCommon.sdkId="com.silabs.sdk.stack.super:1.1.1._1835326931"/>
+	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+		<project id="thesis_gecko.com.silabs.ss.framework.ide.project.core.cdt.cdtMbsProjectType.1887426239" name="SLS CDT Project" projectType="com.silabs.ss.framework.ide.project.core.cdt.cdtMbsProjectType"/>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="scannerConfiguration">
+		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		<scannerConfigBuildInfo instanceId="com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt.debug#com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:4.9.3.20150529;com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt.debug#com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:4.9.3.20150529.;com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base.374916195;com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.input.2124973005">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt.debug#com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:7.2.1.20170904;com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt.debug#com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:7.2.1.20170904.;com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base.738569002;com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.input.285055767">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt.release#com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:7.2.1.20170904;com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt.release#com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:7.2.1.20170904.;com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base.1675045842;com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.input.360166857">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt.release#com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:4.9.3.20150529;com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt.release#com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:4.9.3.20150529.;com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base.748566533;com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.input.882106028">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+	</storageModule>
+</cproject>

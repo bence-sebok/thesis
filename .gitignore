@@ -1,0 +1,11 @@
+# MCU project-related files
+*.o
+*.d
+*.ld
+# Binaries for FLASH programming
+*.axf
+*.hex
+*.bin
+*.s37
+# Other files
+*.mk
