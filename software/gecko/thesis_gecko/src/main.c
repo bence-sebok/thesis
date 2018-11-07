@@ -45,8 +45,10 @@
 #include "em_cmu.h"
 #include "em_emu.h"
 #include "em_gpio.h"
+#include "em_i2c.h"
 #include "gpiointerrupt.h"
 #include "rtcdriver.h"
+#include "udelay.h"
 
 #include "ezradio_cmd.h"
 #include "ezradio_api_lib.h"
@@ -57,6 +59,16 @@
 #include "retargettextdisplay.h"
 #include "bspconfig.h"
 #include "image.h"
+
+#include "FH1750.h"
+#include "BMP280.h"
+
+// FH1750 global variables
+uint32_t rxBuffer[100];
+uint8_t rxIndex = 0;
+volatile uint8_t BH1750_MODE = CONTINUOUS_HIGH_RES_MODE;
+volatile uint8_t BH1750_MTreg = 0;
+const float BH1750_CONV_FACTOR = 1.2;
 
 /* Display device */
 static DISPLAY_Device_t displayDevice;
@@ -256,6 +268,36 @@ void RTC_App_IRQHandler()
   rtcTick = true;
 }
 
+void initI2C(void)
+{
+  int i;
+  CMU_Clock_TypeDef i2cClock;
+  I2C_Init_TypeDef i2cInit = I2C_INIT_DEFAULT;
+
+  CMU_ClockEnable(cmuClock_HFPER, true);
+  /* Select I2C peripheral clock */
+  i2cClock = cmuClock_I2C0;
+  CMU_ClockEnable(i2cClock, true);
+
+  /* Output value must be set to 1 to not drive lines low. Set
+	 SCL first, to ensure it is high before changing SDA. */
+  GPIO_PinModeSet(gpioPortD, 7, gpioModeWiredAndPullUp, 1);
+  GPIO_PinModeSet(gpioPortD, 6, gpioModeWiredAndPullUp, 1);
+
+  /* In some situations, after a reset during an I2C transfer, the slave
+	 device may be left in an unknown state. Send 9 clock pulses to
+	 set slave in a defined state. */
+  for (i = 0; i < 9; i++) {
+	GPIO_PinOutSet(gpioPortD, 7);
+	GPIO_PinOutClear(gpioPortD, 7);
+  }
+
+  /* Enable pins and set location */
+  I2C0->ROUTE = I2C_ROUTE_SDAPEN | I2C_ROUTE_SCLPEN | (1 << _I2C_ROUTE_LOCATION_SHIFT);
+
+  I2C_Init(I2C0, &i2cInit);
+}
+
 /***************************************************************************//**
  * @brief  Main function of the example.
  ******************************************************************************/
@@ -276,6 +318,38 @@ int main(void)
 
   /* Setup GPIO for pushbuttons. */
   GpioSetup();
+
+  initI2C();
+
+  int8_t BMP280_CHIPID_VALUE[1] = {0};
+  uint16_t chipidSize = 1;
+
+  int8_t BMP280_CONFIG[2] = {0};
+  uint16_t sizeConfig = 2;
+
+  uint8_t meas[6] = {0};
+
+  int32_t measurement_press = 0;
+  int32_t measurement_temp = 0;
+
+  BH1750_Configure(CONTINUOUS_HIGH_RES_MODE);
+  BMP280_I2C_ReadRegister(BMP280_REGISTER_CHIPID, BMP280_CHIPID_VALUE, chipidSize);
+  BMP280_I2C_ReadRegister(0xF4, BMP280_CONFIG, sizeConfig);
+  delay_ms(1000);
+  BMP280_CONFIG[0] = ((0x05 << 2) | (0x03 << 5));
+  BMP280_CONFIG[1] = ((0x05 << 5) | (0x01 << 2));
+  BMP280_I2C_WriteRegister(0xF4, BMP280_CONFIG, 2);
+  BMP280_CONFIG[0] = ((0x05 << 2) | (0x03 << 5) | (0x03));
+  BMP280_I2C_WriteRegister(0xF4, BMP280_CONFIG, 2);
+
+while (true)
+{
+	BH1750_readLightLevel(1000);
+	BMP280_I2C_ReadRegister(0xF7, meas, 6);
+	measurement_press = (int32_t) ((((uint32_t) (meas[0])) << 12) | (((uint32_t) (meas[1])) << 4) | ((uint32_t) meas[2] >> 4));
+	measurement_temp = (int32_t) ((((uint32_t) (meas[3])) << 12) | (((uint32_t) (meas[4])) << 4) | ((uint32_t) meas[5] >> 4));
+	delay_ms(1000);
+}
 
   /* Initialize the display module. */
   DISPLAY_Init();

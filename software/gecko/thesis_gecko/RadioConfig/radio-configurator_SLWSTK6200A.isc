@@ -1,5 +1,5 @@
 #ISD afv6
-# Simplicity Studio version: 4.29.5.201810191319-1343
+# ISD version: 3.4.2970
 
 # Application configuration
 stackId: stackless
@@ -15,19 +15,13 @@ generationDirectory: PATH(ISC_RELATIVE):.
 # Setup configurations
 {setupId:genConfig
 }
-{setupId:hwConfig
-featureLevel=1
-active=true
-}
 {setupId:macros
 -DRADIO_USE_GENERATED_CONFIGURATION=1
 }
-{setupId:quizz
-}
 {setupId:radioConfig
-BASE_FREQUENCY=int:433000000
+BASE_FREQUENCY=int:868000000
 BIT_ORDER=bool:false
-CENTER_FREQUENCY=int:433000000
+CENTER_FREQUENCY=int:868000000
 CHANNEL_NUMBER=int:0
 CHANNEL_SPACING=int:250000
 CHECK_CRC[0]=bool:false
@@ -140,7 +134,7 @@ PKT_PREAMBLE_MANCHESTER_CONSTANT=bool:false
 PKT_PREAMBLE_MANCHESTER_ENABLED=bool:false
 PKT_PREAMBLE_NONE_STANDARD=byte[]:00 00 00 00
 PKT_PREAMBLE_PATTERN=int:1
-PKT_PREAMBLE_PATTERN_LENGTH=int:1
+PKT_PREAMBLE_PATTERN_LENGTH=int:0
 PKT_PREAMBLE_RX_BIT_ERROR=int:0
 PKT_PREAMBLE_RX_THRESHOLD=int:20
 PKT_PREAMBLE_TIMEOUT=int:15
