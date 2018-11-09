@@ -9,3 +9,4 @@
 *.s37
 # Other files
 *.mk
+*.map

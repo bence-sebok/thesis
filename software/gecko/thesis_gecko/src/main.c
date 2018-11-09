@@ -329,8 +329,8 @@ int main(void)
 
   uint8_t meas[6] = {0};
 
-  int32_t measurement_press = 0;
-  int32_t measurement_temp = 0;
+  volatile int32_t measurement_press = 0;
+  volatile int32_t measurement_temp = 0;
 
   BH1750_Configure(CONTINUOUS_HIGH_RES_MODE);
   BMP280_I2C_ReadRegister(BMP280_REGISTER_CHIPID, BMP280_CHIPID_VALUE, chipidSize);
@@ -346,8 +346,8 @@ while (true)
 {
 	BH1750_readLightLevel(1000);
 	BMP280_I2C_ReadRegister(0xF7, meas, 6);
-	measurement_press = (int32_t) ((((uint32_t) (meas[0])) << 12) | (((uint32_t) (meas[1])) << 4) | ((uint32_t) meas[2] >> 4));
-	measurement_temp = (int32_t) ((((uint32_t) (meas[3])) << 12) | (((uint32_t) (meas[4])) << 4) | ((uint32_t) meas[5] >> 4));
+	measurement_press = (meas[0] << 12 | meas[1] << 4 | meas[2] >> 4);
+	measurement_temp = (meas[3] << 12 | meas[4] << 4 | meas[5] >> 4);
 	delay_ms(1000);
 }
 
