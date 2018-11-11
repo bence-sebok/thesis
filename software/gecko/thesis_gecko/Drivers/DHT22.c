@@ -36,7 +36,6 @@ uint32_t DHT22_ExpectPulse(unsigned int level) {
 	return count;
 }
 
-
 uint8_t DHT22_ReadSensor(uint8_t *output)
 {
 	// TODO: check the 2 seconds sensor reading interval
@@ -122,7 +121,7 @@ uint8_t DHT22_ReadSensor(uint8_t *output)
   return 1;
 }
 
-float DHT22_ReadTemperature(void) {
+void DHT22_ReadTemperature(float *temperature) {
   float f = 0;
   uint8_t data[5] = {0};
   if (DHT22_ReadSensor(data))
@@ -136,5 +135,19 @@ float DHT22_ReadTemperature(void) {
         f *= -1;
       }
     }
-  return f;
+  *temperature = f;
+}
+
+
+void DHT22_ReadHumidity(float *humidity) {
+  float f = 0;
+  uint8_t data[5] = {0};
+  if (DHT22_ReadSensor(data))
+  {
+	  f = data[0];
+	  f *= 256;
+	  f += data[1];
+	  f *= 0.1;
+  }
+  *humidity = f;
 }

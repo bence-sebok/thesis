@@ -337,7 +337,8 @@ int main(void)
 
   uint8_t meas[6] = {0};
 
-  float dht22_temp = 0;
+  float dht22_temperature = 0;
+  float dht22_humidity = 0;
 
   uint32_t i = 0;
 
@@ -356,13 +357,16 @@ int main(void)
 
 while (true)
 {
+	delay_ms(1000);
+	delay_ms(1000);
+	DHT22_ReadTemperature(&dht22_temperature);
 	BH1750_readLightLevel(1000, &lightLevel);
 	BMP280_I2C_ReadRegister(0xF7, meas, 6);
 	measurement_press = (meas[0] << 12 | meas[1] << 4 | meas[2] >> 4);
 	measurement_temp = (meas[3] << 12 | meas[4] << 4 | meas[5] >> 4);
-	dht22_temp = DHT22_ReadTemperature();
 	delay_ms(1000);
 	delay_ms(1000);
+	DHT22_ReadHumidity(&dht22_humidity);
 	delay_ms(1000);
 	delay_ms(1000);
 	delay_ms(1000);
