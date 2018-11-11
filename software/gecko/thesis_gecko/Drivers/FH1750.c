@@ -23,6 +23,7 @@ int BH1750_Configure(Mode mode) {
 
     // default transmission result to a value out of normal range
     uint32_t result = 5;
+    uint16_t data = 0;
 
     // Check measurement mode is valid
     switch (mode) {
@@ -38,7 +39,7 @@ int BH1750_Configure(Mode mode) {
 		// Wait a few moments to wake up
 		delay_ms(1000);
 		int size = 0;
-		size = BH1750_ReadData(I2C0, BH1750_ADDRESS << 1, rxBuffer);
+		size = BH1750_ReadData(I2C0, BH1750_ADDRESS << 1, &data);
 		break;
       default:
         // Invalid measurement mode
@@ -77,7 +78,7 @@ int BH1750_Configure(Mode mode) {
    *   Returns number of bytes read on success. Otherwise returns error codes
    *   based on the I2CDRV.
    *****************************************************************************/
-    int32_t BH1750_ReadData(I2C_TypeDef *i2c, uint8_t addr, uint32_t *data)
+    int32_t BH1750_ReadData(I2C_TypeDef *i2c, uint8_t addr, uint16_t *data)
   {
     I2C_TransferSeq_TypeDef    seq;
     I2C_TransferReturn_TypeDef ret;
@@ -99,14 +100,15 @@ int BH1750_Configure(Mode mode) {
     		ret = I2C_Transfer(i2c);
     	}
 
-    	data[rxIndex++] = ((uint32_t) i2c_read_data[0] << 8) + (i2c_read_data[1] & 0xfc);
+    	*data = ((uint16_t) i2c_read_data[0] << 8) + (i2c_read_data[1] & 0xfc);
     	return i2cTransferDone;
   }
 
-    void delay_ms(int ms) {
-  	int i;
-  	for(i = 0; i < ms; i++) { UDELAY_Delay(1000); }
-  }
+void delay_ms(int ms)
+{
+	int i;
+	for(i = 0; i < ms; i++) { UDELAY_Delay(1000); }
+}
 
 
     int32_t BH1750_I2CTransmit(I2C_TypeDef *i2c, uint8_t addr, uint32_t *data,
@@ -170,7 +172,7 @@ int BH1750_Configure(Mode mode) {
    * 	   -1 : no valid return value
    * 	   -2 : sensor not configured
    */
-    float BH1750_readLightLevel(int maxWait) {
+    float BH1750_readLightLevel(int maxWait, uint16_t *lightLevel) {
 
   	uint32_t result = 0;
 
@@ -210,7 +212,7 @@ int BH1750_Configure(Mode mode) {
     // Read two bytes from the sensor, which are low and high parts of the sensor
     // value
     int size = 0;
-    size = BH1750_ReadData(I2C0, BH1750_ADDRESS << 1, rxBuffer);
+    size = BH1750_ReadData(I2C0, BH1750_ADDRESS << 1, lightLevel);
     if (2 == size) {
       unsigned int tmp = 0;
       tmp = rxBuffer[rxIndex - 1];
@@ -229,8 +231,6 @@ int BH1750_Configure(Mode mode) {
       }
       // Convert raw value to lux
       level /= BH1750_CONV_FACTOR;
-
-    return level;
-
   }
+    return level;
 }

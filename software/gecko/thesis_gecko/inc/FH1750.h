@@ -39,9 +39,9 @@ typedef enum
       ONE_TIME_LOW_RES_MODE = 0x23
     } Mode;
 
-float BH1750_readLightLevel(int maxWait);
+float BH1750_readLightLevel(int maxWait, uint16_t *lightLevel);
 int BH1750_Configure(Mode mode);
-int32_t BH1750_ReadData(I2C_TypeDef *i2c, uint8_t addr, uint32_t *data);
+int32_t BH1750_ReadData(I2C_TypeDef *i2c, uint8_t addr, uint16_t *data);
 int32_t BH1750_I2CWriteByte(I2C_TypeDef *i2c, uint8_t addr, uint8_t command);
 void delay_ms(int ms);
 

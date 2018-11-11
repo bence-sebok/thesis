@@ -327,6 +327,8 @@ int main(void)
   int8_t BMP280_CONFIG[2] = {0};
   uint16_t sizeConfig = 2;
 
+  uint16_t lightLevel = 0;
+
   uint8_t meas[6] = {0};
 
   volatile int32_t measurement_press = 0;
@@ -344,7 +346,7 @@ int main(void)
 
 while (true)
 {
-	BH1750_readLightLevel(1000);
+	BH1750_readLightLevel(1000, &lightLevel);
 	BMP280_I2C_ReadRegister(0xF7, meas, 6);
 	measurement_press = (meas[0] << 12 | meas[1] << 4 | meas[2] >> 4);
 	measurement_temp = (meas[3] << 12 | meas[4] << 4 | meas[5] >> 4);
