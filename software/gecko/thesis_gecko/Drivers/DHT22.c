@@ -5,6 +5,8 @@
  *      Author: sebokbence
  */
 
+#include <math.h>
+
 #include "em_gpio.h"
 #include "em_core.h"
 #include "em_int.h"
@@ -36,7 +38,7 @@ uint32_t DHT22_ExpectPulse(unsigned int level) {
 	return count;
 }
 
-uint8_t DHT22_ReadSensor(uint8_t *output)
+uint8_t DHT22_ReadSensor(dht22_data_t * output)
 {
 	// TODO: check the 2 seconds sensor reading interval
 
@@ -113,41 +115,72 @@ uint8_t DHT22_ReadSensor(uint8_t *output)
     // stored data.
   }
 
-  output[0] = data[0];
-  output[1] = data[1];
-  output[2] = data[2];
-  output[3] = data[3];
-  output[4] = data[4];
+  output->raw[0] = data[0];
+  output->raw[1] = data[1];
+  output->raw[2] = data[2];
+  output->raw[3] = data[3];
+  output->raw[4] = data[4];
   return 1;
 }
 
-void DHT22_ReadTemperature(float *temperature) {
+void DHT22_GetTemperature(dht22_data_t *dht22_data) {
   float f = 0;
-  uint8_t data[5] = {0};
-  if (DHT22_ReadSensor(data))
+  f = dht22_data->raw[2] & 0x7F;
+  f *= 256;
+  f += dht22_data->raw[3];
+  f *= 0.1;
+  if (dht22_data->raw[2] & 0x80)
   {
-      f = data[2] & 0x7F;
-      f *= 256;
-      f += data[3];
-      f *= 0.1;
-      if (data[2] & 0x80)
-      {
-        f *= -1;
-      }
-    }
-  *temperature = f;
+	f *= -1;
+  }
+  dht22_data->temperature = f;
 }
 
 
-void DHT22_ReadHumidity(float *humidity) {
-  float f = 0;
-  uint8_t data[5] = {0};
-  if (DHT22_ReadSensor(data))
-  {
-	  f = data[0];
-	  f *= 256;
-	  f += data[1];
-	  f *= 0.1;
+void DHT22_GetHumidity(dht22_data_t *dht22_data) {
+	float f = 0;
+	f = dht22_data->raw[0];
+	f *= 256;
+	f += dht22_data->raw[1];
+	f *= 0.1;
+	dht22_data->humidity = f;
+}
+
+float DHT22_convertCtoF(float c) {
+  return c * 1.8 + 32;
+}
+
+float DHT22_convertFtoC(float f) {
+  return (f - 32) * 0.55555;
+}
+
+float DHT22_ComputeHeatIndex(dht22_data_t* dht22_data) {
+  // Using both Rothfusz and Steadman's equations
+  // http://www.wpc.ncep.noaa.gov/html/heatindex_equation.shtml
+  float hi = 0;
+  float temperature = 0;
+
+  temperature = DHT22_convertCtoF(dht22_data->temperature);
+
+  hi = 0.5 * (temperature + 61.0 + ((temperature - 68.0) * 1.2) + (dht22_data->humidity * 0.094));
+
+  if (hi > 79) {
+    hi = -42.379 +
+             2.04901523 * temperature +
+            10.14333127 * dht22_data->humidity +
+            -0.22475541 * temperature*dht22_data->humidity +
+            -0.00683783 * pow(temperature, 2) +
+            -0.05481717 * pow(dht22_data->humidity, 2) +
+             0.00122874 * pow(temperature, 2) * dht22_data->humidity +
+             0.00085282 * temperature*pow(dht22_data->humidity, 2) +
+            -0.00000199 * pow(temperature, 2) * pow(dht22_data->humidity, 2);
+
+    if((dht22_data->humidity < 13) && (temperature >= 80.0) && (temperature <= 112.0))
+      hi -= ((13.0 - dht22_data->humidity) * 0.25) * sqrt((17.0 - abs(temperature - 95.0)) * 0.05882);
+
+    else if((dht22_data->humidity > 85.0) && (temperature >= 80.0) && (temperature <= 87.0))
+      hi += ((dht22_data->humidity - 85.0) * 0.1) * ((87.0 - temperature) * 0.2);
   }
-  *humidity = f;
+
+  dht22_data->heatIndex = DHT22_convertFtoC(hi);
 }
