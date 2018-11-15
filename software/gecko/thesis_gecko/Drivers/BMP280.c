@@ -5,6 +5,7 @@
  *      Author: sebokbence
  */
 
+#include "hardware_config.h"
 #include "BMP280.h"
 #include <string.h>
 #include "em_i2c.h"
@@ -29,7 +30,7 @@ void init_I2C(void)
 	  // Initializing the I2C
 	  I2C_Init(I2C0, &i2cInit);
 	  // Set slave address and ctrl
-	  I2C0->SADDR = I2C_ADDRESS_7BIT_KX126;
+	  I2C0->SADDR = I2C_ADDRESS_BMP280;
 	  I2C0->CTRL |= I2C_CTRL_AUTOACK | I2C_CTRL_AUTOSN;
 }
 
@@ -103,166 +104,109 @@ I2C_TransferReturn_TypeDef BMP280_I2C_WriteRegister(uint8_t registerAddress, int
 	return i2cTransferDone;
 }
 
-
-/**
- * @brief
- *  Writes data to KX126 sensor. Write a single byte (data) to the register pointed by registerAddress.
- * @param[in] registerAddress
- *   The register to write to.
- * @param[in] data
- *   Byte to write to the register.
- * @return
- *   Status of I2C transfer.
-*/
-uint16_t KX126_I2C_SendCommand(uint8_t command)
+/*!
+ * @brief This API is used to read the calibration parameters used
+ * for calculating the compensated data.
+ */
+void BMP280_GetCalibrationParameters(struct bmp280_calib_param * parameters)
 {
-	// Local variables for I2C transfer
-	I2C_TransferSeq_TypeDef    seq;
-	I2C_TransferReturn_TypeDef ret;
-	uint8_t commands[2] = {0};
-	uint16_t commandSize = 0;
-	uint8_t bufferRead[2] = {0};
-	uint16_t sizeRead = 2;
-	uint16_t retval = 0;
+	uint8_t temp[BMP280_CALIB_PARAMETERS_SIZE] = {0};
 
-	switch(command)
-	{
-	case SI7051_COMMAND_READ_FIRMWARE_VERSION:
-		commands[0] = 0x84;
-		commands[1] = 0xB8;
-		commandSize = 2;
-		break;
-	case SI7051_COMMAND_MEASUREMENT_NOHOLD:
-		commands[0] = 0xE3;
-		commandSize = 1;
-		break;
-	case SI7051_COMMAND_MEASUREMENT_HOLD:
-		commands[0] = 0xF3;
-		commandSize = 1;
-		break;
-	case SI7051_COMMAND_READ_USERREGISTER1:
-		commands[0] = 0xE7;
-		commandSize = 1;
-		break;
-	case SI7051_COMMAND_RESET:
-			commands[0] = 0xFE;
-			commandSize = 1;
-			break;
-	default:
-		return 0;
-	}
-
-	// Set seq values
-	seq.addr  = I2C_ADDRESS_8BIT_SI7051;
-	seq.flags = I2C_FLAG_WRITE_READ;
-	seq.buf[0].data   = commands;
-	seq.buf[0].len    = commandSize;
-	/* Select location/length of data to be read */
-	seq.buf[1].data = (uint8_t *)bufferRead;
-	seq.buf[1].len  = sizeRead;
-
-	ret = I2C_TransferInit(SI7051_I2C, &seq);
-	// Sending data
-	while (ret == i2cTransferInProgress)
-	{
-		ret = I2C_Transfer(SI7051_I2C);
-	}
-
-	switch(command)
-	{
-	case SI7051_COMMAND_READ_FIRMWARE_VERSION:
-		memcpy(&retval, bufferRead, 2);
-		break;
-	case SI7051_COMMAND_MEASUREMENT_NOHOLD:
-		retval = (bufferRead[0] << 8 | bufferRead[1]);
-		break;
-	case SI7051_COMMAND_MEASUREMENT_HOLD:
-		retval = (bufferRead[1] << 8 | bufferRead[0]);
-		break;
-	case SI7051_COMMAND_READ_USERREGISTER1:
-		memcpy(&retval, bufferRead, 2);
-		break;
-	case SI7051_COMMAND_RESET:
-		break;
-	default:
-		retval = 0;
-	}
-
-	return retval;
+	BMP280_I2C_ReadRegister(BMP280_DIG_T1_LSB_ADDR, (int8_t *)temp, BMP280_CALIB_PARAMETERS_SIZE);
+	parameters->dig_t1 = (uint16_t) (((uint16_t) temp[BMP280_DIG_T1_MSB_POS] << 8)
+	| ((uint16_t) temp[BMP280_DIG_T1_LSB_POS]));
+	parameters->dig_t2 = (int16_t) (((int16_t) temp[BMP280_DIG_T2_MSB_POS] << 8)
+	| ((int16_t) temp[BMP280_DIG_T2_LSB_POS]));
+	parameters->dig_t3 = (int16_t) (((int16_t) temp[BMP280_DIG_T3_MSB_POS] << 8)
+	| ((int16_t) temp[BMP280_DIG_T3_LSB_POS]));
+	parameters->dig_p1 = (uint16_t) (((uint16_t) temp[BMP280_DIG_P1_MSB_POS] << 8)
+	| ((uint16_t) temp[BMP280_DIG_P1_LSB_POS]));
+	parameters->dig_p2 = (int16_t) (((int16_t) temp[BMP280_DIG_P2_MSB_POS] << 8)
+	| ((int16_t) temp[BMP280_DIG_P2_LSB_POS]));
+	parameters->dig_p3 = (int16_t) (((int16_t) temp[BMP280_DIG_P3_MSB_POS] << 8)
+	| ((int16_t) temp[BMP280_DIG_P3_LSB_POS]));
+	parameters->dig_p4 = (int16_t) (((int16_t) temp[BMP280_DIG_P4_MSB_POS] << 8)
+	| ((int16_t) temp[BMP280_DIG_P4_LSB_POS]));
+	parameters->dig_p5 = (int16_t) (((int16_t) temp[BMP280_DIG_P5_MSB_POS] << 8)
+	| ((int16_t) temp[BMP280_DIG_P5_LSB_POS]));
+	parameters->dig_p6 = (int16_t) (((int16_t) temp[BMP280_DIG_P6_MSB_POS] << 8)
+	| ((int16_t) temp[BMP280_DIG_P6_LSB_POS]));
+	parameters->dig_p7 = (int16_t) (((int16_t) temp[BMP280_DIG_P7_MSB_POS] << 8)
+	| ((int16_t) temp[BMP280_DIG_P7_LSB_POS]));
+	parameters->dig_p8 = (int16_t) (((int16_t) temp[BMP280_DIG_P8_MSB_POS] << 8)
+	| ((int16_t) temp[BMP280_DIG_P8_LSB_POS]));
+	parameters->dig_p9 = (int16_t) (((int16_t) temp[BMP280_DIG_P9_MSB_POS] << 8)
+	| ((int16_t) temp[BMP280_DIG_P9_LSB_POS]));
 }
 
-int32_t SI7051_ConvertTemperature(uint16_t Temp_Code)
+
+/*!
+ * @brief This API is used to get the compensated temperature from
+ * uncompensated temperature. This API uses 32 bit integers.
+ */
+int32_t BMP280_CompensateTemperature(uint32_t uncomp_temp, struct bmp280_calib_param *parameters)
 {
-	int32_t temperatureC = 0;
-	int32_t prod = Temp_Code * 17572;
-	int32_t div = prod / 6553600;
-	int32_t sub = div - 4685;
-	temperatureC = sub / 100;
-	return temperatureC;
+	double var1;
+	double var2;
+	int32_t temperature = 0;
+	//var1 = ((((uncomp_temp >> 3) - ((double) parameters->dig_t1 << 1))) * ((double) parameters->dig_t2)) >> 11;
+	var1 = (((double)uncomp_temp)/16384.0 - ((double)parameters->dig_t1)/1024.0) * ((double)parameters->dig_t2);
+	var2 = ((((double)uncomp_temp)/131072.0 - ((double)parameters->dig_t1)/8192.0) * (((double)uncomp_temp)/131072.0 - ((double)parameters->dig_t1)/8192.0)) * ((double)parameters->dig_t3);
+	parameters->t_fine = var1 + var2;
+	temperature = (parameters->t_fine * 5 + 128) >> 8;
+	return temperature;
 }
 
-/**
- * @brief
- *  Reads X, Y, Z accelerations from sensor.
- * @return
- *   Three words of X, Y, Z accelerations.
-*/
-accel_data_w_t SI7051_ReadTemperature()
-{
-	// Local variables for XYZ data
-	  int8_t readBuffer[6] = {0};
-	  uint16_t readSize = 6;
-	  accel_data_lh_t acceleration = {0};
-	  accel_data_w_t accelerationWord = {0};
-	  // Read data from sensor
-	  KX126_I2C_ReadRegister(KX126_REGISTER_XOUTL, readBuffer, readSize);
-	  // Return accel struct data with xyz axis data
-	  memcpy(&acceleration, readBuffer, readSize);
-	  memcpy(&accelerationWord, &acceleration, readSize);
-	  return accelerationWord;
-}
-
-/**
- * @brief
- *  Set operating mode of sensor to full power or low power mode
- * @return
- *   none
-*/
-void KX126_EnableSensor(void)
-{
-	  uint8_t cntl1_byte = 0;
-	  int8_t singleByte[1] = {0};
-	  // Read CNTL1 from sensor
-	  KX126_I2C_ReadRegister(KX126_REGISTER_CNTL1, singleByte, 1);
-	  cntl1_byte = singleByte[0];
-	  // Bit7 is PC1 (controls the operating mode)
-	  // PC1 = 0 - stand-by mode
-	  // PC1 = 1 - full power or low power mode
-	  // Overwrite CNTL1 with PREVIOUS_VALUE | PC1
-	  KX126_I2C_WriteRegister(KX126_REGISTER_CNTL1, cntl1_byte | KX126_CNTL1_PC1_SET);
-}
-
-/*
-int32_t bmp280_comp_temp_32bit(uint32_t uncomp_temp)
+/*!
+ * @brief This API is used to get the compensated pressure from
+ * uncompensated pressure. This API uses 32 bit integers.
+ */
+uint32_t BMP280_CompensatePressure(uint32_t uncomp_pres, struct bmp280_calib_param *parameters)
 {
 	int32_t var1;
 	int32_t var2;
-	int32_t temperature = 0;
-	int8_t rslt;
+	uint32_t pressure = 0;
+	var1 = (((int32_t) parameters->t_fine) >> 1) - (int32_t) 64000;
+	var2 = (((var1 >> 2) * (var1 >> 2)) >> 11) * ((int32_t) parameters->dig_p6);
+	var2 = var2 + ((var1 * ((int32_t) parameters->dig_p5)) << 1);
+	var2 = (var2 >> 2) + (((int32_t) parameters->dig_p4) << 16);
+	var1 = (((parameters->dig_p3 * (((var1 >> 2) * (var1 >> 2)) >> 13)) >> 3)
+	+ ((((int32_t) parameters->dig_p2) * var1) >> 1)) >> 18;
+	var1 = ((((32768 + var1)) * ((int32_t) parameters->dig_p1)) >> 15);
+	pressure = (((uint32_t) (((int32_t) 1048576) - uncomp_pres) - (var2 >> 12))) * 3125;
 
-	rslt = null_ptr_check(dev);
+	/* Avoid exception caused by division with zero */
+	if (var1 != 0) {
+		/* Check for overflows against UINT32_MAX/2; if pres is left-shifted by 1 */
+		if (pressure < 0x80000000)
+			pressure = (pressure << 1) / ((uint32_t) var1);
+		else
+			pressure = (pressure / (uint32_t) var1) * 2;
 
-	if (rslt == BMP280_OK) {
-		var1 = ((((uncomp_temp >> 3) - ((int32_t) dev->calib_param.dig_t1 << 1)))
-		* ((int32_t) dev->calib_param.dig_t2)) >> 11;
-		var2 = (((((uncomp_temp >> 4) - ((int32_t) dev->calib_param.dig_t1))
-		* ((uncomp_temp >> 4) - ((int32_t) dev->calib_param.dig_t1))) >> 12)
-		* ((int32_t) dev->calib_param.dig_t3)) >> 14;
-
-		dev->calib_param.t_fine = var1 + var2;
-		temperature = (dev->calib_param.t_fine * 5 + 128) >> 8;
+		var1 = (((int32_t) parameters->dig_p9)
+		* ((int32_t) (((pressure >> 3) * (pressure >> 3)) >> 13))) >> 12;
+		var2 = (((int32_t) (pressure >> 2)) * ((int32_t) parameters->dig_p8)) >> 13;
+		pressure = (uint32_t) ((int32_t) pressure + ((var1 + var2 + parameters->dig_p7) >> 4));
+	} else {
+		pressure = 0;
 	}
 
-	return temperature;
+	return pressure;
 }
-*/
+
+void BMP280_SetExampleCalibrationParameters(struct bmp280_calib_param *parameters)
+{
+	parameters->dig_t1 = 27504;
+	parameters->dig_t2 = 26435;
+	parameters->dig_t3 = -1000;
+	parameters->dig_p1 = 36477;
+	parameters->dig_p2 = -10685;
+	parameters->dig_p3 = 3024;
+	parameters->dig_p4 = 2855;
+	parameters->dig_p5 = 140;
+	parameters->dig_p6 = -7;
+	parameters->dig_p7 = 15500;
+	parameters->dig_p8 = -14600;
+	parameters->dig_p9 = 6000;
+	parameters->t_fine = 0;
+}

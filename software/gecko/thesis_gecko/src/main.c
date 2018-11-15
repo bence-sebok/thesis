@@ -61,6 +61,7 @@
 #include "image.h"
 
 // Header files for sensors
+#include "hardware_config.h"
 #include "FH1750.h"
 #include "BMP280.h"
 #include "DHT22.h"
@@ -333,19 +334,24 @@ int main(void)
   int8_t BMP280_CONFIG[2] = {0};
   uint16_t sizeConfig = 2;
 
+  uint32_t bmp280_pressure = 0;
+  int32_t bmp280_temperature = 0;
+  double bmp280_temperature_C = 0.0;
+
   uint16_t lightLevel = 0;
 
   uint8_t meas[6] = {0};
 
   dht22_data_t dht22_data = {0};
 
-  uint32_t i = 0;
+  struct bmp280_calib_param bmp280_parameters = {0};
 
   volatile int32_t measurement_press = 0;
   volatile int32_t measurement_temp = 0;
 
   BH1750_Configure(CONTINUOUS_HIGH_RES_MODE);
-  BMP280_I2C_ReadRegister(BMP280_REGISTER_CHIPID, BMP280_CHIPID_VALUE, chipidSize);
+  BMP280_I2C_ReadRegister(BMP280_CHIPID_REGISTER, BMP280_CHIPID_VALUE, chipidSize);
+  BMP280_GetCalibrationParameters(&bmp280_parameters);
   BMP280_I2C_ReadRegister(0xF4, BMP280_CONFIG, sizeConfig);
   delay_ms(1000);
   BMP280_CONFIG[0] = ((0x05 << 2) | (0x03 << 5));
@@ -354,12 +360,18 @@ int main(void)
   BMP280_CONFIG[0] = ((0x05 << 2) | (0x03 << 5) | (0x03));
   BMP280_I2C_WriteRegister(0xF4, BMP280_CONFIG, 2);
 
+  //BMP280_SetExampleCalibrationParameters(&bmp280_parameters);
+
 while (true)
 {
 	BH1750_readLightLevel(1000, &lightLevel);
-	BMP280_I2C_ReadRegister(0xF7, meas, 6);
-	measurement_press = (meas[0] << 12 | meas[1] << 4 | meas[2] >> 4);
-	measurement_temp = (meas[3] << 12 | meas[4] << 4 | meas[5] >> 4);
+	BMP280_I2C_ReadRegister(0xF7, (int8_t*)meas, 6);
+	measurement_press = (int32_t) (((uint32_t)meas[0] << 12) | ((uint32_t)meas[1] << 4) | ((uint32_t)meas[2] >> 4));
+	measurement_temp = (int32_t) (((int32_t)meas[3] << 12) | ((int32_t)meas[4] << 4) | ((int32_t)meas[5] >> 4));
+	bmp280_temperature = BMP280_CompensateTemperature(measurement_temp, &bmp280_parameters);
+	bmp280_pressure = BMP280_CompensatePressure(measurement_press, &bmp280_parameters);
+	bmp280_temperature_C = ((double)bmp280_temperature) / 100;
+
 	if(DHT22_ReadSensor(&dht22_data))
 	{
 		DHT22_GetTemperature(&dht22_data);
