@@ -60,8 +60,10 @@
 #include "bspconfig.h"
 #include "image.h"
 
+// Header files for sensors
 #include "FH1750.h"
 #include "BMP280.h"
+#include "DHT22.h"
 
 // FH1750 global variables
 uint32_t rxBuffer[100];
@@ -169,6 +171,9 @@ static void GpioSetup(void)
   GPIO_PinModeSet(BSP_GPIO_PB1_PORT, BSP_GPIO_PB1_PIN, gpioModeInputPull, 1);
   GPIO_IntConfig(BSP_GPIO_PB1_PORT, BSP_GPIO_PB1_PIN, false, true, true);
   GPIOINT_CallbackRegister(BSP_GPIO_PB1_PIN, GPIO_PB1_IRQHandler);
+
+  // DHT22 sensor GPIO settings
+  GPIO_PinModeSet(DHT22_DATA_PORT, DHT22_DATA_PIN, gpioModeInputPull, 1); // Pull up
 }
 
 /***************************************************************************//**
@@ -315,6 +320,7 @@ int main(void)
 
   /* HFXO 48MHz, divided by 1 */
   CMU_ClockSelectSet(cmuClock_HF, cmuSelect_HFXO);
+  UDELAY_Calibrate();
 
   /* Setup GPIO for pushbuttons. */
   GpioSetup();
@@ -330,6 +336,10 @@ int main(void)
   uint16_t lightLevel = 0;
 
   uint8_t meas[6] = {0};
+
+  dht22_data_t dht22_data = {0};
+
+  uint32_t i = 0;
 
   volatile int32_t measurement_press = 0;
   volatile int32_t measurement_temp = 0;
@@ -350,6 +360,13 @@ while (true)
 	BMP280_I2C_ReadRegister(0xF7, meas, 6);
 	measurement_press = (meas[0] << 12 | meas[1] << 4 | meas[2] >> 4);
 	measurement_temp = (meas[3] << 12 | meas[4] << 4 | meas[5] >> 4);
+	if(DHT22_ReadSensor(&dht22_data))
+	{
+		DHT22_GetTemperature(&dht22_data);
+		DHT22_GetHumidity(&dht22_data);
+		DHT22_ComputeHeatIndex(&dht22_data);
+	}
+	delay_ms(1000);
 	delay_ms(1000);
 }
 
