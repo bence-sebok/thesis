@@ -34,10 +34,13 @@
  *
  ******************************************************************************/
 
+//#define THESIS_TEST
+
 #include <stdint.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "spidrv.h"
 #include "em_device.h"
@@ -46,6 +49,7 @@
 #include "em_emu.h"
 #include "em_gpio.h"
 #include "em_i2c.h"
+#include "em_timer.h"
 #include "gpiointerrupt.h"
 #include "rtcdriver.h"
 #include "udelay.h"
@@ -65,6 +69,27 @@
 #include "FH1750.h"
 #include "BMP280.h"
 #include "DHT22.h"
+
+int8_t BMP280_CHIPID_VALUE[1] = {0};
+uint16_t chipidSize = 1;
+
+int8_t BMP280_CONFIG[2] = {0};
+uint16_t sizeConfig = 2;
+
+uint32_t bmp280_pressure = 0;
+int32_t bmp280_temperature = 0;
+double bmp280_temperature_C = 0.0;
+
+uint16_t lightLevel = 0;
+
+uint8_t meas[6] = {0};
+
+dht22_data_t dht22_data = {0};
+
+struct bmp280_calib_param bmp280_parameters = {0};
+
+volatile int32_t measurement_press = 0;
+volatile int32_t measurement_temp = 0;
 
 // FH1750 global variables
 uint32_t rxBuffer[100];
@@ -152,6 +177,52 @@ static volatile bool rtcTick = false;
 static RTCDRV_TimerID_t rtcTickTimer;
 static RTCDRV_TimerID_t rtcRepeateTimer;
 
+static volatile uint32_t timerTick = 0;
+static volatile uint8_t measurementFlag = 0;
+
+/**************************************************************************//**
+ * @brief
+ *    TIMER initialization
+ *****************************************************************************/
+// Note: change this to set the desired output frequency in Hz
+#define TIMER_FREQ (0.2)
+void initTimer(void)
+{
+  // Enable clock for TIMER0 module
+  CMU_ClockEnable(cmuClock_TIMER1, true);
+
+  // Initialize the timer
+  TIMER_Init_TypeDef timerInit = TIMER_INIT_DEFAULT;
+  timerInit.prescale = _TIMER_CTRL_PRESC_DIV1024;
+  TIMER_Init(TIMER1, &timerInit);
+
+  // Set top value to overflow at the desired PWM_FREQ frequency
+  TIMER_TopSet(TIMER1,  250000000);
+
+
+  // Enable TIMER0 compare event interrupts to update the duty cycle
+  TIMER_IntEnable(TIMER1, TIMER_IEN_OF);
+  NVIC_EnableIRQ(TIMER1_IRQn);
+}
+
+/**************************************************************************//**
+ * @brief
+ *    Interrupt handler for TIMER1 that changes the duty cycle
+ *******************************************************************************/
+void TIMER1_IRQHandler(void)
+{
+  // Acknowledge the interrupt
+  uint32_t flags = TIMER_IntGet(TIMER1);
+  TIMER_IntClear(TIMER1, flags);
+  timerTick++;
+  if(timerTick > 10)
+  {
+	  measurementFlag = 1;
+	  GPIO_PinOutToggle(gpioPortF, 6);
+	  timerTick = 0;
+  }
+}
+
 /***************************************************************************//**
  * @brief Setup GPIO interrupt for pushbuttons.
  ******************************************************************************/
@@ -175,6 +246,9 @@ static void GpioSetup(void)
 
   // DHT22 sensor GPIO settings
   GPIO_PinModeSet(DHT22_DATA_PORT, DHT22_DATA_PIN, gpioModeInputPull, 1); // Pull up
+
+  GPIO_PinModeSet(gpioPortF, 6, gpioModePushPull, 1); // User LED0
+  GPIO_PinModeSet(gpioPortF, 7, gpioModePushPull, 0); // User LED1
 }
 
 /***************************************************************************//**
@@ -194,6 +268,72 @@ static void GPIO_PB0_IRQHandler(uint8_t pin)
 #endif //#if ( defined EZRADIO_PLUGIN_TRANSMIT )
 }
 
+static void doMeasurement(void)
+{
+	int i;
+	int empty = false;
+	GPIO_PinOutSet(gpioPortF, 7);
+	BH1750_readLightLevel(1000, &lightLevel);
+	BMP280_I2C_ReadRegister(0xF7, (int8_t*)meas, 6);
+	for(i = 0; i < 6; i++)
+	{
+		if(meas[i] != 0)
+		{
+			empty = true;
+		}
+	}
+	if(!empty)
+	{
+		meas[0] = 0b111;
+		meas[1] = 0b11101110;
+		meas[3] = 0b11010000;
+		meas[4] = 0b110;
+		meas[5] = 0b01010101;
+		meas[6] = 0b10101100;
+	}
+	measurement_press = (int32_t) (((uint32_t)meas[0] << 12) | ((uint32_t)meas[1] << 4) | ((uint32_t)meas[2] >> 4));
+	measurement_temp = (int32_t) (((int32_t)meas[3] << 12) | ((int32_t)meas[4] << 4) | ((int32_t)meas[5] >> 4));
+	bmp280_temperature = BMP280_CompensateTemperature(measurement_temp, &bmp280_parameters);
+	bmp280_pressure = BMP280_CompensatePressure(measurement_press, &bmp280_parameters);
+	bmp280_temperature_C = ((double)bmp280_temperature) / 100;
+	/*
+	if(DHT22_ReadSensor(&dht22_data))
+	{
+		DHT22_GetTemperature(&dht22_data);
+		DHT22_GetHumidity(&dht22_data);
+		DHT22_ComputeHeatIndex(&dht22_data);
+	}
+	*/
+	memset(radioTxPkt, 0, 64);
+	/* Add data cntr as the data to be sent to the packet */
+	// Light level
+	radioTxPkt[APP_PKT_DATA_START]   = (uint8_t)( ((uint16_t)lightLevel) >> 8);
+	radioTxPkt[APP_PKT_DATA_START + 1] = (uint8_t)( ((uint16_t)lightLevel) & 0x00FF);
+	// BMP280 temperature
+	radioTxPkt[APP_PKT_DATA_START + 2]   = (uint8_t)( ((uint16_t)(bmp280_temperature)) >> 24 & 0x00FF);
+	radioTxPkt[APP_PKT_DATA_START + 3]   = (uint8_t)( ((uint16_t)(bmp280_temperature)) >> 16 & 0x00FF);
+	radioTxPkt[APP_PKT_DATA_START + 4]   = (uint8_t)( ((uint16_t)(bmp280_temperature)) >> 8 & 0x00FF);
+	radioTxPkt[APP_PKT_DATA_START + 5]   = (uint8_t)( ((uint16_t)(bmp280_temperature)) >> 0 & 0x00FF);
+	// BMP280 pressure
+	radioTxPkt[APP_PKT_DATA_START + 6]   = (uint8_t)( ((uint16_t)(bmp280_pressure)) >> 24 & 0x00FF);
+	radioTxPkt[APP_PKT_DATA_START + 7]   = (uint8_t)( ((uint16_t)(bmp280_pressure)) >> 16 & 0x00FF);
+	radioTxPkt[APP_PKT_DATA_START + 8]   = (uint8_t)( ((uint16_t)(bmp280_pressure)) >> 8 & 0x00FF);
+	radioTxPkt[APP_PKT_DATA_START + 9]   = (uint8_t)( ((uint16_t)(bmp280_pressure)) >> 0 & 0x00FF);
+	/*
+	memset(radioTxPkt, 0, 64);
+	radioTxPkt[APP_PKT_DATA_START]   = (uint8_t)( ((uint16_t)1) >> 8);
+	radioTxPkt[APP_PKT_DATA_START + 1] = (uint8_t)( ((uint16_t)1) & 0x00FF);
+	// BMP280 temperature
+	radioTxPkt[APP_PKT_DATA_START + 2]   = (uint8_t)( ((uint16_t)(2 / 100)) >> 8);
+	radioTxPkt[APP_PKT_DATA_START + 3] = (uint8_t)( ((uint16_t)(2 % 100)) & 0x00FF);
+	// BMP280 pressure
+	radioTxPkt[APP_PKT_DATA_START + 4]   = (uint8_t)( ((uint16_t)(3 / 100)) >> 8);
+	radioTxPkt[APP_PKT_DATA_START + 5] = (uint8_t)( ((uint16_t)(3 % 100)) & 0x00FF);
+	*/
+	GPIO_PinOutClear(gpioPortF, 7);
+	appTxPktCntr += 1;
+}
+
 /***************************************************************************//**
  * @brief GPIO Interrupt handler (PB0)
  *        Increments the time by one minute.
@@ -206,11 +346,13 @@ static void GPIO_PB1_IRQHandler(uint8_t pin)
   /* Check if already transmitting some packets, stop them if so,
    * otherwise, send the APP_TX_PKT_SEND_NUM number of packets
    * (infinite is defined to 0xFFFF). */
+  /*
   if (appTxPktCntr) {
     appTxPktCntr = 0;
   } else {
     appTxPktCntr += APP_TX_PKT_SEND_NUM;
   }
+  */
 #endif //#if ( defined EZRADIO_PLUGIN_TRANSMIT )
 }
 
@@ -316,6 +458,8 @@ int main(void)
   /* EZRadio response structure union */
   ezradio_cmd_reply_t ezradioReply;
 
+  uint8_t BMP280_RESET[1] = {0xB6};
+
   /* Chip errata */
   CHIP_Init();
 
@@ -328,28 +472,17 @@ int main(void)
 
   initI2C();
 
-  int8_t BMP280_CHIPID_VALUE[1] = {0};
-  uint16_t chipidSize = 1;
-
-  int8_t BMP280_CONFIG[2] = {0};
-  uint16_t sizeConfig = 2;
-
-  uint32_t bmp280_pressure = 0;
-  int32_t bmp280_temperature = 0;
-  double bmp280_temperature_C = 0.0;
-
-  uint16_t lightLevel = 0;
-
-  uint8_t meas[6] = {0};
-
-  dht22_data_t dht22_data = {0};
-
-  struct bmp280_calib_param bmp280_parameters = {0};
-
-  volatile int32_t measurement_press = 0;
-  volatile int32_t measurement_temp = 0;
-
   BH1750_Configure(CONTINUOUS_HIGH_RES_MODE);
+  BMP280_I2C_ReadRegister(BMP280_CHIPID_REGISTER, BMP280_CHIPID_VALUE, chipidSize);
+  if(BMP280_CHIPID_VALUE[0] == 88 || BMP280_CHIPID_VALUE[0] == 0x58)
+  {
+	  BMP280_I2C_WriteRegister(0xE0, (int8_t*)BMP280_RESET, 1);
+  }
+  UDELAY_Delay(1000);
+  UDELAY_Delay(1000);
+  UDELAY_Delay(1000);
+  UDELAY_Delay(1000);
+  UDELAY_Delay(1000);
   BMP280_I2C_ReadRegister(BMP280_CHIPID_REGISTER, BMP280_CHIPID_VALUE, chipidSize);
   BMP280_GetCalibrationParameters(&bmp280_parameters);
   BMP280_I2C_ReadRegister(0xF4, BMP280_CONFIG, sizeConfig);
@@ -360,27 +493,16 @@ int main(void)
   BMP280_CONFIG[0] = ((0x05 << 2) | (0x03 << 5) | (0x03));
   BMP280_I2C_WriteRegister(0xF4, BMP280_CONFIG, 2);
 
+#ifdef THESIS_TEST
+  while(1)
+  {
+	  doMeasurement();
+  }
+#endif
+
+  initTimer();
+
   //BMP280_SetExampleCalibrationParameters(&bmp280_parameters);
-
-while (true)
-{
-	BH1750_readLightLevel(1000, &lightLevel);
-	BMP280_I2C_ReadRegister(0xF7, (int8_t*)meas, 6);
-	measurement_press = (int32_t) (((uint32_t)meas[0] << 12) | ((uint32_t)meas[1] << 4) | ((uint32_t)meas[2] >> 4));
-	measurement_temp = (int32_t) (((int32_t)meas[3] << 12) | ((int32_t)meas[4] << 4) | ((int32_t)meas[5] >> 4));
-	bmp280_temperature = BMP280_CompensateTemperature(measurement_temp, &bmp280_parameters);
-	bmp280_pressure = BMP280_CompensatePressure(measurement_press, &bmp280_parameters);
-	bmp280_temperature_C = ((double)bmp280_temperature) / 100;
-
-	if(DHT22_ReadSensor(&dht22_data))
-	{
-		DHT22_GetTemperature(&dht22_data);
-		DHT22_GetHumidity(&dht22_data);
-		DHT22_ComputeHeatIndex(&dht22_data);
-	}
-	delay_ms(1000);
-	delay_ms(1000);
-}
 
   /* Initialize the display module. */
   DISPLAY_Init();
@@ -450,10 +572,26 @@ while (true)
   ezradioStartRx(appRadioHandle);
 #endif
 
+  /*
+   * ****************************************************************************************
+   * ****************************************************************************************
+   * ****************************************************************************************
+   */
   /* Enter infinite loop that will take care of ezradio plugin manager and packet transmission. */
   while (1) {
     /* Run radio plug-in manager */
     ezradioPluginManager(appRadioHandle);
+
+    if(measurementFlag)
+    {
+    	doMeasurement();
+    	measurementFlag = 0;
+    	/*
+    	rtcTick = 1;
+    	RTCDRV_Init();
+    	RTCDRV_StartTimer(rtcTickTimer, rtcdrvTimerTypePeriodic, APP_RTC_TIMEOUT_MS, (RTCDRV_Callback_t)RTC_App_IRQHandler, NULL);
+    	*/
+    }
 
     if (rtcTick) {
       rtcTick = false;
@@ -465,10 +603,6 @@ while (true)
         if ( !appTxActive ) {
           /* Sing tx active state */
           appTxActive = true;
-
-          /* Add data cntr as the data to be sent to the packet */
-          radioTxPkt[APP_PKT_DATA_START]   = (uint8_t)( ((uint16_t)appDataCntr) >> 8);
-          radioTxPkt[APP_PKT_DATA_START + 1] = (uint8_t)( ((uint16_t)appDataCntr) & 0x00FF);
 
           /* Transmit packet */
           ezradioStartTransmitDefault(appRadioHandle, radioTxPkt);
@@ -537,12 +671,24 @@ static void appPacketReceivedCallback(EZRADIODRV_Handle_t handle, Ecode_t status
          && (radioRxPkt[APP_PKT_DATA_START + 2] == 'K') ) {
       printf("-->Data RX: ACK\n");
     } else {
-      uint16_t rxData;
+      uint16_t rxLight;
+      uint32_t rxTemp;
+      uint32_t rxPres;
 
-      rxData =  (uint16_t)(radioRxPkt[APP_PKT_DATA_START]) << 8;
-      rxData += (uint16_t)(radioRxPkt[APP_PKT_DATA_START + 1]);
+      rxLight =  (uint16_t)(radioRxPkt[APP_PKT_DATA_START]) << 8;
+      rxLight += (uint16_t)(radioRxPkt[APP_PKT_DATA_START + 1]);
+      rxTemp =  (uint16_t)(radioRxPkt[APP_PKT_DATA_START + 2]) << 24;
+      rxTemp +=  (uint16_t)(radioRxPkt[APP_PKT_DATA_START + 3]) << 16;
+      rxTemp +=  (uint16_t)(radioRxPkt[APP_PKT_DATA_START + 4]) << 8;
+      rxTemp +=  (uint16_t)(radioRxPkt[APP_PKT_DATA_START + 5]) << 0;
+      rxPres =  (uint16_t)(radioRxPkt[APP_PKT_DATA_START + 6]) << 24;
+      rxPres +=  (uint16_t)(radioRxPkt[APP_PKT_DATA_START + 7]) << 16;
+      rxPres +=  (uint16_t)(radioRxPkt[APP_PKT_DATA_START + 8]) << 8;
+      rxPres +=  (uint16_t)(radioRxPkt[APP_PKT_DATA_START + 9]) << 0;
 
-      printf("-->Data RX: %05d\n", rxData);
+      printf("Light: %d\n", rxLight);
+      printf("Temp: %d\n", rxTemp);
+      printf("Pres: %d\n", rxPres);
     }
   }
 }
