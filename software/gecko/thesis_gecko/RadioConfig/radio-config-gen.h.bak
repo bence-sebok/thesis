@@ -13,7 +13,7 @@
 // dsa_mode: 0
 // dsource: 0
 // ETSI: 0
-// fc: 868000000
+// fc: 433000000
 // Fdev: 20000
 // Fdev_error: 0
 // fhch: 10
@@ -36,10 +36,10 @@
 
 // Modem configuration calculated values
 // if_freq: -406250.0
-// nb_filter: 2
-// nb_filter_bw: 119.09444444444445
-// wb_filter: 2
-// wb_filter_bw: 119.09444444444445
+// nb_filter: 3
+// nb_filter_bw: 80.26416666666667
+// wb_filter: 3
+// wb_filter_bw: 80.26416666666667
 
 // This file contains the generated ObjectAPI byte arrays for the given configuration
 // Enclosing macro to prevent multiple inclusion
@@ -532,7 +532,7 @@
   0x02 /* NUM_PROPS                                                  */,\
   0x11 /* START_PROP                                                 */,\
   0x00 /* PKT_FIELD_2_LENGTH,FIELD_2_LENGTH[4:0],FIELD_2_LENGTH[7:0] */,\
-  0x10 /* DATA1                                                      */\
+  0x08 /* DATA1                                                      */\
 }
 
 #define RADIO_CONFIG_SET_PROPERTY_PKT_FIELD_2_LENGTH_LEN (6)
@@ -1016,7 +1016,7 @@
   0x20 /* GROUP: Modem                                            */,\
   0x01 /* NUM_PROPS                                               */,\
   0x51 /* START_PROP                                              */,\
-  0x08 /* MODEM_CLKGEN_BAND,FORCE_SY_RECAL[4],SY_SEL[3],BAND[2:0] */\
+  0x0A /* MODEM_CLKGEN_BAND,FORCE_SY_RECAL[4],SY_SEL[3],BAND[2:0] */\
 }
 
 #define RADIO_CONFIG_SET_PROPERTY_MODEM_CLKGEN_BAND_LEN (5)
@@ -1132,8 +1132,8 @@
   0x03 /* NUM_PROPS                                           */,\
   0x0A /* START_PROP                                          */,\
   0x00 /* MODEM_FREQ_DEV,FREQDEV[0],FREQDEV[7:0],FREQDEV[7:0] */,\
-  0x03 /* DATA1                                               */,\
-  0x27 /* DATA2                                               */\
+  0x06 /* DATA1                                               */,\
+  0x4D /* DATA2                                               */\
 }
 
 #define RADIO_CONFIG_SET_PROPERTY_MODEM_FREQ_DEV_LEN (7)
@@ -1177,9 +1177,9 @@
   0x40 /* GROUP: Freq control                             */,\
   0x03 /* NUM_PROPS                                       */,\
   0x01 /* START_PROP                                      */,\
-  0x0E /* FREQ_CONTROL_FRAC,FRAC[3:0],FRAC[7:0],FRAC[7:0] */,\
-  0x27 /* DATA1                                           */,\
-  0x62 /* DATA2                                           */\
+  0x0C /* FREQ_CONTROL_FRAC,FRAC[3:0],FRAC[7:0],FRAC[7:0] */,\
+  0xEC /* DATA1                                           */,\
+  0x4E /* DATA2                                           */\
 }
 
 #define RADIO_CONFIG_SET_PROPERTY_FREQ_CONTROL_FRAC_LEN (7)
@@ -1190,8 +1190,8 @@
   0x40 /* GROUP: Freq control                                                          */,\
   0x02 /* NUM_PROPS                                                                    */,\
   0x04 /* START_PROP                                                                   */,\
-  0x27 /* FREQ_CONTROL_CHANNEL_STEP_SIZE,CHANNEL_STEP_SIZE[7:0],CHANNEL_STEP_SIZE[7:0] */,\
-  0x62 /* DATA1                                                                        */\
+  0x4E /* FREQ_CONTROL_CHANNEL_STEP_SIZE,CHANNEL_STEP_SIZE[7:0],CHANNEL_STEP_SIZE[7:0] */,\
+  0xC5 /* DATA1                                                                        */\
 }
 
 #define RADIO_CONFIG_SET_PROPERTY_FREQ_CONTROL_CHANNEL_STEP_SIZE_LEN (6)
@@ -1213,7 +1213,7 @@
   0x40 /* GROUP: Freq control                           */,\
   0x01 /* NUM_PROPS                                     */,\
   0x07 /* START_PROP                                    */,\
-  0xFF /* FREQ_CONTROL_VCOCNT_RX_ADJ,VCOCNT_RX_ADJ[7:0] */\
+  0xFE /* FREQ_CONTROL_VCOCNT_RX_ADJ,VCOCNT_RX_ADJ[7:0] */\
 }
 
 #define RADIO_CONFIG_SET_PROPERTY_FREQ_CONTROL_VCOCNT_RX_ADJ_LEN (5)
@@ -1247,7 +1247,7 @@
   0x03 /* NUM_PROPS                                            */,\
   0x1B /* START_PROP                                           */,\
   0x03 /* MODEM_IF_FREQ,IF_FREQ[1:0],IF_FREQ[7:0],IF_FREQ[7:0] */,\
-  0xC0 /* DATA1                                                */,\
+  0x80 /* DATA1                                                */,\
   0x00 /* DATA2                                                */\
 }
 
@@ -1259,7 +1259,7 @@
   0x20 /* GROUP: Modem                                           */,\
   0x01 /* NUM_PROPS                                              */,\
   0x1E /* START_PROP                                             */,\
-  0x10 /* MODEM_DECIMATION_CFG1,NDEC2[7:6],NDEC1[5:4],NDEC0[3:1] */\
+  0x20 /* MODEM_DECIMATION_CFG1,NDEC2[7:6],NDEC1[5:4],NDEC0[3:1] */\
 }
 
 #define RADIO_CONFIG_SET_PROPERTY_MODEM_DECIMATION_CFG1_LEN (5)
@@ -1270,7 +1270,7 @@
   0x20 /* GROUP: Modem                                                                         */,\
   0x01 /* NUM_PROPS                                                                            */,\
   0x1F /* START_PROP                                                                           */,\
-  0x10 /* MODEM_DECIMATION_CFG0,CHFLT_LOPW[7],DROOPFLTBYP[6],DWN3BYP[5],DWN2BYP[4],RXGAINX2[0] */\
+  0x20 /* MODEM_DECIMATION_CFG0,CHFLT_LOPW[7],DROOPFLTBYP[6],DWN3BYP[5],DWN2BYP[4],RXGAINX2[0] */\
 }
 
 #define RADIO_CONFIG_SET_PROPERTY_MODEM_DECIMATION_CFG0_LEN (5)
@@ -1282,7 +1282,7 @@
   0x02 /* NUM_PROPS                           */,\
   0x22 /* START_PROP                          */,\
   0x01 /* MODEM_BCR_OSR,RXOSR[3:0],RXOSR[7:0] */,\
-  0xB1 /* DATA1                               */\
+  0x45 /* DATA1                               */\
 }
 
 #define RADIO_CONFIG_SET_PROPERTY_MODEM_BCR_OSR_LEN (6)
@@ -1294,8 +1294,8 @@
   0x03 /* NUM_PROPS                                             */,\
   0x24 /* START_PROP                                            */,\
   0x01 /* MODEM_BCR_NCO_OFFSET,NCOFF[5:0],NCOFF[7:0],NCOFF[7:0] */,\
-  0x2E /* DATA1                                                 */,\
-  0x79 /* DATA2                                                 */\
+  0x93 /* DATA1                                                 */,\
+  0x4C /* DATA2                                                 */\
 }
 
 #define RADIO_CONFIG_SET_PROPERTY_MODEM_BCR_NCO_OFFSET_LEN (7)
@@ -1307,7 +1307,7 @@
   0x02 /* NUM_PROPS                              */,\
   0x27 /* START_PROP                             */,\
   0x00 /* MODEM_BCR_GAIN,CRGAIN[2:0],CRGAIN[7:0] */,\
-  0x97 /* DATA1                                  */\
+  0xCA /* DATA1                                  */\
 }
 
 #define RADIO_CONFIG_SET_PROPERTY_MODEM_BCR_GAIN_LEN (6)
@@ -1374,7 +1374,7 @@
   0x02 /* NUM_PROPS                                                                  */,\
   0x2E /* START_PROP                                                                 */,\
   0x80 /* MODEM_AFC_GAIN,ENAFC[7],AFCBD[6],AFC_GAIN_DIV[5],AFCGAIN[4:0],AFCGAIN[7:0] */,\
-  0x11 /* DATA1                                                                      */\
+  0x22 /* DATA1                                                                      */\
 }
 
 #define RADIO_CONFIG_SET_PROPERTY_MODEM_AFC_GAIN_LEN (6)
@@ -1385,8 +1385,8 @@
   0x20 /* GROUP: Modem                              */,\
   0x02 /* NUM_PROPS                                 */,\
   0x30 /* START_PROP                                */,\
-  0x16 /* MODEM_AFC_LIMITER,AFCLIM[6:0],AFCLIM[7:0] */,\
-  0x97 /* DATA1                                     */\
+  0x0F /* MODEM_AFC_LIMITER,AFCLIM[6:0],AFCLIM[7:0] */,\
+  0x50 /* DATA1                                     */\
 }
 
 #define RADIO_CONFIG_SET_PROPERTY_MODEM_AFC_LIMITER_LEN (6)
@@ -1430,7 +1430,7 @@
   0x20 /* GROUP: Modem                         */,\
   0x01 /* NUM_PROPS                            */,\
   0x39 /* START_PROP                           */,\
-  0x5F /* MODEM_AGC_RFPD_DECAY,RFPD_DECAY[7:0] */\
+  0x47 /* MODEM_AGC_RFPD_DECAY,RFPD_DECAY[7:0] */\
 }
 
 #define RADIO_CONFIG_SET_PROPERTY_MODEM_AGC_RFPD_DECAY_LEN (5)
@@ -1441,7 +1441,7 @@
   0x20 /* GROUP: Modem                         */,\
   0x01 /* NUM_PROPS                            */,\
   0x3A /* START_PROP                           */,\
-  0x5F /* MODEM_AGC_IFPD_DECAY,IFPD_DECAY[7:0] */\
+  0x47 /* MODEM_AGC_IFPD_DECAY,IFPD_DECAY[7:0] */\
 }
 
 #define RADIO_CONFIG_SET_PROPERTY_MODEM_AGC_IFPD_DECAY_LEN (5)
@@ -1564,7 +1564,7 @@
   0x02 /* NUM_PROPS                             */,\
   0x46 /* START_PROP                            */,\
   0x01 /* MODEM_RAW_EYE,RAWEYE[2:0],RAWEYE[7:0] */,\
-  0x27 /* DATA1                                 */\
+  0x89 /* DATA1                                 */\
 }
 
 #define RADIO_CONFIG_SET_PROPERTY_MODEM_RAW_EYE_LEN (6)
@@ -1641,18 +1641,18 @@
   0x21 /* GROUP: Modem chflt                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */,\
   0x0C /* NUM_PROPS                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         */,\
   0x00 /* START_PROP                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        */,\
-  0xFF /* MODEM_CHFLT_RX1_CHFLT_COE,RX1_CHFLT_COE13[1:0],RX1_CHFLT_COE13[7:0],RX1_CHFLT_COE12[3:2],RX1_CHFLT_COE12[7:0],RX1_CHFLT_COE11[5:4],RX1_CHFLT_COE11[7:0],RX1_CHFLT_COE10[7:6],RX1_CHFLT_COE10[7:0],RX1_CHFLT_COE9[1:0],RX1_CHFLT_COE9[7:0],RX1_CHFLT_COE8[3:2],RX1_CHFLT_COE8[7:0],RX1_CHFLT_COE7[5:4],RX1_CHFLT_COE7[7:0],RX1_CHFLT_COE6[7:6],RX1_CHFLT_COE6[7:0],RX1_CHFLT_COE5[1:0],RX1_CHFLT_COE5[7:0],RX1_CHFLT_COE4[3:2],RX1_CHFLT_COE4[7:0],RX1_CHFLT_COE3[5:4],RX1_CHFLT_COE3[7:0],RX1_CHFLT_COE2[7:6],RX1_CHFLT_COE2[7:0],RX1_CHFLT_COE1[1:0],RX1_CHFLT_COE1[7:0],RX1_CHFLT_COE0[3:2],RX1_CHFLT_COE0[7:0] */,\
-  0xC4 /* DATA1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
+  0xCC /* MODEM_CHFLT_RX1_CHFLT_COE,RX1_CHFLT_COE13[1:0],RX1_CHFLT_COE13[7:0],RX1_CHFLT_COE12[3:2],RX1_CHFLT_COE12[7:0],RX1_CHFLT_COE11[5:4],RX1_CHFLT_COE11[7:0],RX1_CHFLT_COE10[7:6],RX1_CHFLT_COE10[7:0],RX1_CHFLT_COE9[1:0],RX1_CHFLT_COE9[7:0],RX1_CHFLT_COE8[3:2],RX1_CHFLT_COE8[7:0],RX1_CHFLT_COE7[5:4],RX1_CHFLT_COE7[7:0],RX1_CHFLT_COE6[7:6],RX1_CHFLT_COE6[7:0],RX1_CHFLT_COE5[1:0],RX1_CHFLT_COE5[7:0],RX1_CHFLT_COE4[3:2],RX1_CHFLT_COE4[7:0],RX1_CHFLT_COE3[5:4],RX1_CHFLT_COE3[7:0],RX1_CHFLT_COE2[7:6],RX1_CHFLT_COE2[7:0],RX1_CHFLT_COE1[1:0],RX1_CHFLT_COE1[7:0],RX1_CHFLT_COE0[3:2],RX1_CHFLT_COE0[7:0] */,\
+  0xA1 /* DATA1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
   0x30 /* DATA2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
-  0x7F /* DATA3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
-  0xF5 /* DATA4                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
-  0xB5 /* DATA5                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
-  0xB8 /* DATA6                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
-  0xDE /* DATA7                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
-  0x05 /* DATA8                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
-  0x17 /* DATA9                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
-  0x16 /* DATA10                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            */,\
-  0x0C /* DATA11                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            */\
+  0xA0 /* DATA3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
+  0x21 /* DATA4                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
+  0xD1 /* DATA5                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
+  0xB9 /* DATA6                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
+  0xC9 /* DATA7                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
+  0xEA /* DATA8                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
+  0x05 /* DATA9                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
+  0x12 /* DATA10                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            */,\
+  0x11 /* DATA11                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            */\
 }
 
 #define RADIO_CONFIG_SET_PROPERTY_MODEM_CHFLT_RX1_CHFLT_COE_0_LEN (16)
@@ -1663,11 +1663,11 @@
   0x21 /* GROUP: Modem chflt */,\
   0x06 /* NUM_PROPS          */,\
   0x0C /* START_PROP         */,\
-  0x03 /* DATA0              */,\
-  0x00 /* DATA1              */,\
+  0x0A /* DATA0              */,\
+  0x04 /* DATA1              */,\
   0x15 /* DATA2              */,\
-  0xFF /* DATA3              */,\
-  0x00 /* DATA4              */,\
+  0xFC /* DATA3              */,\
+  0x03 /* DATA4              */,\
   0x00 /* DATA5              */\
 }
 
@@ -1679,18 +1679,18 @@
   0x21 /* GROUP: Modem chflt                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */,\
   0x0C /* NUM_PROPS                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         */,\
   0x12 /* START_PROP                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        */,\
-  0xFF /* MODEM_CHFLT_RX2_CHFLT_COE,RX2_CHFLT_COE13[1:0],RX2_CHFLT_COE13[7:0],RX2_CHFLT_COE12[3:2],RX2_CHFLT_COE12[7:0],RX2_CHFLT_COE11[5:4],RX2_CHFLT_COE11[7:0],RX2_CHFLT_COE10[7:6],RX2_CHFLT_COE10[7:0],RX2_CHFLT_COE9[1:0],RX2_CHFLT_COE9[7:0],RX2_CHFLT_COE8[3:2],RX2_CHFLT_COE8[7:0],RX2_CHFLT_COE7[5:4],RX2_CHFLT_COE7[7:0],RX2_CHFLT_COE6[7:6],RX2_CHFLT_COE6[7:0],RX2_CHFLT_COE5[1:0],RX2_CHFLT_COE5[7:0],RX2_CHFLT_COE4[3:2],RX2_CHFLT_COE4[7:0],RX2_CHFLT_COE3[5:4],RX2_CHFLT_COE3[7:0],RX2_CHFLT_COE2[7:6],RX2_CHFLT_COE2[7:0],RX2_CHFLT_COE1[1:0],RX2_CHFLT_COE1[7:0],RX2_CHFLT_COE0[3:2],RX2_CHFLT_COE0[7:0] */,\
-  0xC4 /* DATA1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
+  0xCC /* MODEM_CHFLT_RX2_CHFLT_COE,RX2_CHFLT_COE13[1:0],RX2_CHFLT_COE13[7:0],RX2_CHFLT_COE12[3:2],RX2_CHFLT_COE12[7:0],RX2_CHFLT_COE11[5:4],RX2_CHFLT_COE11[7:0],RX2_CHFLT_COE10[7:6],RX2_CHFLT_COE10[7:0],RX2_CHFLT_COE9[1:0],RX2_CHFLT_COE9[7:0],RX2_CHFLT_COE8[3:2],RX2_CHFLT_COE8[7:0],RX2_CHFLT_COE7[5:4],RX2_CHFLT_COE7[7:0],RX2_CHFLT_COE6[7:6],RX2_CHFLT_COE6[7:0],RX2_CHFLT_COE5[1:0],RX2_CHFLT_COE5[7:0],RX2_CHFLT_COE4[3:2],RX2_CHFLT_COE4[7:0],RX2_CHFLT_COE3[5:4],RX2_CHFLT_COE3[7:0],RX2_CHFLT_COE2[7:6],RX2_CHFLT_COE2[7:0],RX2_CHFLT_COE1[1:0],RX2_CHFLT_COE1[7:0],RX2_CHFLT_COE0[3:2],RX2_CHFLT_COE0[7:0] */,\
+  0xA1 /* DATA1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
   0x30 /* DATA2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
-  0x7F /* DATA3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
-  0xF5 /* DATA4                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
-  0xB5 /* DATA5                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
-  0xB8 /* DATA6                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
-  0xDE /* DATA7                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
-  0x05 /* DATA8                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
-  0x17 /* DATA9                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
-  0x16 /* DATA10                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            */,\
-  0x0C /* DATA11                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            */\
+  0xA0 /* DATA3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
+  0x21 /* DATA4                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
+  0xD1 /* DATA5                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
+  0xB9 /* DATA6                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
+  0xC9 /* DATA7                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
+  0xEA /* DATA8                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
+  0x05 /* DATA9                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */,\
+  0x12 /* DATA10                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            */,\
+  0x11 /* DATA11                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            */\
 }
 
 #define RADIO_CONFIG_SET_PROPERTY_MODEM_CHFLT_RX2_CHFLT_COE_0_LEN (16)
@@ -1701,11 +1701,11 @@
   0x21 /* GROUP: Modem chflt */,\
   0x06 /* NUM_PROPS          */,\
   0x1E /* START_PROP         */,\
-  0x03 /* DATA0              */,\
-  0x00 /* DATA1              */,\
+  0x0A /* DATA0              */,\
+  0x04 /* DATA1              */,\
   0x15 /* DATA2              */,\
-  0xFF /* DATA3              */,\
-  0x00 /* DATA4              */,\
+  0xFC /* DATA3              */,\
+  0x03 /* DATA4              */,\
   0x00 /* DATA5              */\
 }
 
@@ -1717,7 +1717,7 @@
   0x20 /* GROUP: Modem                                            */,\
   0x01 /* NUM_PROPS                                               */,\
   0x54 /* START_PROP                                              */,\
-  0x04 /* MODEM_SPIKE_DET,SPIKE_DETECT_EN[7],SPIKE_THRESHOLD[6:0] */\
+  0x05 /* MODEM_SPIKE_DET,SPIKE_DETECT_EN[7],SPIKE_THRESHOLD[6:0] */\
 }
 
 #define RADIO_CONFIG_SET_PROPERTY_MODEM_SPIKE_DET_LEN (5)
@@ -1761,7 +1761,7 @@
   0x20 /* GROUP: Modem                                */,\
   0x01 /* NUM_PROPS                                   */,\
   0x5D /* START_PROP                                  */,\
-  0x0B /* MODEM_DSA_QUAL,EYE_QUAL_SEL[7],ARRQUAL[6:0] */\
+  0x0C /* MODEM_DSA_QUAL,EYE_QUAL_SEL[7],ARRQUAL[6:0] */\
 }
 
 #define RADIO_CONFIG_SET_PROPERTY_MODEM_DSA_QUAL_LEN (5)

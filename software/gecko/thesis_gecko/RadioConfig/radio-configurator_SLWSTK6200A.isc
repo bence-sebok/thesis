@@ -1,5 +1,5 @@
 #ISD afv6
-# ISD version: 3.4.2970
+# Simplicity Studio version: 5.0.0.201811140904-1361
 
 # Application configuration
 stackId: stackless
@@ -15,8 +15,14 @@ generationDirectory: PATH(ISC_RELATIVE):.
 # Setup configurations
 {setupId:genConfig
 }
+{setupId:hwConfig
+featureLevel=1
+active=true
+}
 {setupId:macros
 -DRADIO_USE_GENERATED_CONFIGURATION=1
+}
+{setupId:quizz
 }
 {setupId:radioConfig
 BASE_FREQUENCY=int:868000000
@@ -109,7 +115,7 @@ PKT_FIELD_4GFSK[3]=bool:false
 PKT_FIELD_4GFSK[4]=bool:false
 PKT_FIELD_CONTAINING_LENGTH=int:1
 PKT_FIELD_LENGTH[0]=int:1
-PKT_FIELD_LENGTH[1]=int:8
+PKT_FIELD_LENGTH[1]=int:16
 PKT_FIELD_LENGTH[2]=int:0
 PKT_FIELD_LENGTH[3]=int:0
 PKT_FIELD_LENGTH[4]=int:0
@@ -134,7 +140,7 @@ PKT_PREAMBLE_MANCHESTER_CONSTANT=bool:false
 PKT_PREAMBLE_MANCHESTER_ENABLED=bool:false
 PKT_PREAMBLE_NONE_STANDARD=byte[]:00 00 00 00
 PKT_PREAMBLE_PATTERN=int:1
-PKT_PREAMBLE_PATTERN_LENGTH=int:0
+PKT_PREAMBLE_PATTERN_LENGTH=int:1
 PKT_PREAMBLE_RX_BIT_ERROR=int:0
 PKT_PREAMBLE_RX_THRESHOLD=int:20
 PKT_PREAMBLE_TIMEOUT=int:15
