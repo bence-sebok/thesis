@@ -297,14 +297,12 @@ static void doMeasurement(void)
 	bmp280_temperature = BMP280_CompensateTemperature(measurement_temp, &bmp280_parameters);
 	bmp280_pressure = BMP280_CompensatePressure(measurement_press, &bmp280_parameters);
 	bmp280_temperature_C = ((double)bmp280_temperature) / 100;
-	/*
 	if(DHT22_ReadSensor(&dht22_data))
 	{
 		DHT22_GetTemperature(&dht22_data);
 		DHT22_GetHumidity(&dht22_data);
 		DHT22_ComputeHeatIndex(&dht22_data);
 	}
-	*/
 	memset(radioTxPkt, 0, 64);
 	/* Add data cntr as the data to be sent to the packet */
 	// Light level

@@ -61,7 +61,7 @@ uint8_t DHT22_ReadSensor(dht22_data_t * output)
   {
     // Turn off interrupts temporarily because the next sections are timing critical
     // and we don't want any interruptions.
-	INT_Disable();
+	//INT_Disable();
 
 	// End the start signal by setting data line high for 40 microseconds.
 	GPIO_PinOutSet(DHT22_DATA_PORT, DHT22_DATA_PIN);
@@ -94,7 +94,7 @@ uint8_t DHT22_ReadSensor(dht22_data_t * output)
 	    }
 	  } // Timing critical code is now complete.
 
-  	INT_Disable();
+  	INT_Enable();
 
   // Inspect pulses and determine which ones are 0 (high state cycle count < low
   // state cycle count), or 1 (high state cycle count > low state cycle count).
