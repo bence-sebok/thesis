@@ -35,6 +35,7 @@
  ******************************************************************************/
 
 //#define THESIS_TEST
+#define USING_DISPLAY
 
 #include <stdint.h>
 #include <stdbool.h>
@@ -505,13 +506,17 @@ int main(void)
   //BMP280_SetExampleCalibrationParameters(&bmp280_parameters);
 
   /* Initialize the display module. */
+#ifndef USING_DISPLAY
   DISPLAY_Init();
+#endif
 
+#ifndef USING_DISPLAY
   /* Retarget stdio to the display. */
   if (TEXTDISPLAY_EMSTATUS_OK != RETARGET_TextDisplayInit()) {
     /* Text display initialization failed. */
     while (1) ;
   }
+#endif
 
   /* Set RTC to generate interrupt 250ms. */
   RTCDRV_Init();
@@ -525,8 +530,10 @@ int main(void)
     while (1) ;
   }
 
+#ifndef USING_DISPLAY
   /* Print header */
   printf("\n\n\n\n\n\n\n\n  EZRadio Simple TRx\n");
+#endif
 
 #if (defined EZRADIO_PLUGIN_TRANSMIT)
   /* Configure packet transmitted callback. */
@@ -549,8 +556,11 @@ int main(void)
 
   /* Print EZRadio device number. */
   ezradio_part_info(&ezradioReply);
+#ifndef USING_DISPLAY
   printf("   Device: Si%04x\n\n", ezradioReply.PART_INFO.PART);
+#endif
 
+#ifndef USING_DISPLAY
 #if (defined EZRADIO_PLUGIN_TRANSMIT)
   /* Print instructions. */
   printf(" Press PB0 to send\n  one packet.\n");
@@ -565,6 +575,7 @@ int main(void)
 #endif
   /* Draw logo */
   drawPicture();
+#endif
 
   /* Reset radio fifos and start reception. */
   ezradioResetTRxFifo();
@@ -586,11 +597,6 @@ int main(void)
     {
     	doMeasurement();
     	measurementFlag = 0;
-    	/*
-    	rtcTick = 1;
-    	RTCDRV_Init();
-    	RTCDRV_StartTimer(rtcTickTimer, rtcdrvTimerTypePeriodic, APP_RTC_TIMEOUT_MS, (RTCDRV_Callback_t)RTC_App_IRQHandler, NULL);
-    	*/
     }
 
     if (rtcTick) {
@@ -607,7 +613,9 @@ int main(void)
           /* Transmit packet */
           ezradioStartTransmitDefault(appRadioHandle, radioTxPkt);
 
+#ifndef USING_DISPLAY
           printf("<--Data TX: %05d\n", appDataCntr);
+#endif
 
           /* Increase data counter */
           appDataCntr++;
@@ -621,7 +629,9 @@ int main(void)
             }
           }
         } else {
+#ifndef USING_DISPLAY
           printf("---Data TX:  need to wait\n");
+#endif
         }
       }
 #endif //#if ( defined EZRADIO_PLUGIN_TRANSMIT )
@@ -669,7 +679,9 @@ static void appPacketReceivedCallback(EZRADIODRV_Handle_t handle, Ecode_t status
     if ( (radioRxPkt[APP_PKT_DATA_START] == 'A')
          && (radioRxPkt[APP_PKT_DATA_START + 1] == 'C')
          && (radioRxPkt[APP_PKT_DATA_START + 2] == 'K') ) {
+#ifndef USING_DISPLAY
       printf("-->Data RX: ACK\n");
+#endif
     } else {
       uint16_t rxLight;
       uint32_t rxTemp;
@@ -686,9 +698,11 @@ static void appPacketReceivedCallback(EZRADIODRV_Handle_t handle, Ecode_t status
       rxPres +=  (uint16_t)(radioRxPkt[APP_PKT_DATA_START + 8]) << 8;
       rxPres +=  (uint16_t)(radioRxPkt[APP_PKT_DATA_START + 9]) << 0;
 
+#ifndef USING_DISPLAY
       printf("Light: %d\n", rxLight);
       printf("Temp: %d\n", rxTemp);
       printf("Pres: %d\n", rxPres);
+#endif
     }
   }
 }
@@ -704,7 +718,9 @@ static void appPacketReceivedCallback(EZRADIODRV_Handle_t handle, Ecode_t status
 static void appPacketCrcErrorCallback(EZRADIODRV_Handle_t handle, Ecode_t status)
 {
   if ( status == ECODE_EMDRV_EZRADIODRV_OK ) {
+#ifndef USING_DISPLAY
     printf("-->Pkt  RX: CRC Error\n");
+#endif
 
 #if (defined EZRADIO_PLUGIN_RECEIVE)
     /* Change to RX state */
